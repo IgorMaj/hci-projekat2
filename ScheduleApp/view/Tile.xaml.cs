@@ -55,14 +55,21 @@ namespace ScheduleApp.view
                 {
                     //TODO postavi podatke
                     var oldTermTile = (TermTile)e.Data.GetData("Object");
-                    ((Grid)this.Parent).Children.Remove(oldTermTile);
+                    
                     TermTile termTile = new TermTile(oldTermTile);
 
                     int row = Grid.GetRow(this);
                     int column = Grid.GetColumn(this);
+                    int newTileRowspan = 3 * (termTile.Term.Length);
+                    if (row + newTileRowspan > ((Grid)this.Parent).RowDefinitions.Count) {
+                        MessageBox.Show("Impossible to drag. You will break the time limit.");
+                        return;
+                    }
                     Grid.SetRow(termTile,row);
+                    Grid.SetRowSpan(termTile,newTileRowspan);
                     Grid.SetColumn(termTile,column);
                     ((Grid)this.Parent).Children.Add(termTile);
+                    ((Grid)this.Parent).Children.Remove(oldTermTile);
 
                     e.Effects = DragDropEffects.Move;
                     //na osnovu pozicije plocice cemo da provalimo novi termin

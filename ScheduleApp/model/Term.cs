@@ -10,5 +10,6 @@ namespace ScheduleApp.model
         public Subject Subject { get; set; } //iz predmeta mozemo saznati minimalni duzine termina predmeta(u casovima od po 45 min) Broj termina koji predmet zahteva
         public TimeSpan Time { get; set;} //vreme kad pocinje
         public WEEKDAY Day { get; set; }
+        public int Length { get; set; } //duzina u jedinicama od po 45 min
     }
 }
