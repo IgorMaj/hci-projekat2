@@ -1,5 +1,4 @@
-﻿using ScheduleApp.view;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,17 +13,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ScheduleApp
+namespace ScheduleApp.view
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainScheduleView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainScheduleView : UserControl
     {
-        public MainWindow()
+        public MainScheduleView()
         {
             InitializeComponent();
             
         }
+
+        
     }
 }
