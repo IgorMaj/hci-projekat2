@@ -70,7 +70,8 @@ namespace ScheduleApp.repository
             StreamWriter sw = new StreamWriter(Path);
             var json = JsonConvert.SerializeObject(Obj, new JsonSerializerSettings()
             {
-                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                Formatting = Formatting.Indented
             });
             sw.Write(json);
             sw.Close();

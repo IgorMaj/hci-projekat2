@@ -77,7 +77,7 @@ namespace ScheduleApp.view
             int i = 0;
             TimeSpan time = new TimeSpan(7, 0, 0);
             while (i < row) {
-                time = time.Add(new TimeSpan(0,45,0));
+                time = time.Add(new TimeSpan(0,15,0));
                 i++;
             }
             Term.Time = time;
