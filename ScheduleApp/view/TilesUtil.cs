@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScheduleApp.repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,14 @@ namespace ScheduleApp.view
 {
     public class TilesUtil
     {
+
+        public static void ClearTermArea(Grid grid,int row, int column, int rowspan) {
+            var coordinates = GetAllTermCoordinates(row,column,rowspan);
+            var tiles = GetTiles(grid, coordinates);
+            MarkTiles(tiles,null);
+        }
+
+
         //vraca sve koordinate u gridu nad kojim se ovaj term prostire
         public static List<Tuple<int, int>> GetAllTermCoordinates(int row, int column, int rowspan)
         {
@@ -22,7 +31,28 @@ namespace ScheduleApp.view
             return coordinates;
         }
 
-
+        public static void DeleteSelectedTile() {
+            if (TermTile.LastSelectedTermTile != null)
+            {
+                if (MessageBox.Show("Are you sure you want to delete the selected tile?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+                {
+                    return;
+                }
+                else
+                {
+                    var grid = ((Grid)TermTile.LastSelectedTermTile.Parent);
+                    int row = Grid.GetRow(TermTile.LastSelectedTermTile);
+                    int column = Grid.GetColumn(TermTile.LastSelectedTermTile);
+                    int rowspan = Grid.GetRowSpan(TermTile.LastSelectedTermTile);
+                    ClearTermArea(grid, row, column, rowspan);
+                    JSONUtil.DeleteTermFromCLassroomAndSave(TermTile.LastSelectedTermTile.Term);
+                    grid.Children.Remove(TermTile.LastSelectedTermTile);
+                
+                    TermTile.LastSelectedTermTile = null;
+                }
+                
+            }
+        }
 
 
         public static List<Tile> GetTiles(Grid grid, List<Tuple<int, int>> coordinates)

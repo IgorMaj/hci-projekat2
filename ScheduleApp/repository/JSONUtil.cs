@@ -77,6 +77,17 @@ namespace ScheduleApp.repository
             sw.Close();
         }
 
+        public static void DeleteTermFromCLassroomAndSave(Term t) {
+            var classrooms = (ObservableCollection<Classroom>)Obj;
+            foreach (Classroom classroom in classrooms) {
+                if (classroom.Terms.Contains(t)) {
+                    classroom.Terms.Remove(t);
+                    break;
+                }
+            }
+            Save();
+        }
+
 
 
         

@@ -32,6 +32,7 @@ namespace ScheduleApp.view
             TileStrokeColor = "White";
             StrokeThickness = 5;
             TextFontSize = 20;
+            Focusable = true;
 
         }
 
@@ -44,6 +45,7 @@ namespace ScheduleApp.view
             StrokeThickness = other.StrokeThickness;
             TextFontSize = other.TextFontSize;
             Term = other.Term;
+            Focusable = true;
         }
 
         protected override void OnMouseMove(MouseEventArgs e)
@@ -60,10 +62,23 @@ namespace ScheduleApp.view
             }
         }
 
+        private string tileStrokeColor;
+
         public Term Term { get; set; }
         public string TileText { get; set; }
         public string TileColor { get; set; }
-        public string TileStrokeColor { get; set; }
+
+        public static TermTile LastSelectedTermTile { get; set; }
+
+        public string TileStrokeColor {
+            get { return tileStrokeColor; }
+
+            set {
+                tileStrokeColor = value;
+                rect.Stroke = new SolidColorBrush((Color)ColorConverter.ConvertFromString(tileStrokeColor));
+            }
+        }
+
         public int StrokeThickness { get; set; }
         public int TextFontSize { get; set; }
 
@@ -84,8 +99,30 @@ namespace ScheduleApp.view
             JSONUtil.Save();
         }
 
+        
+
         public bool Equals(TermTile obj) {
+            if (obj == null) {
+                return false;
+            }
             return Term == obj.Term;
         }
+
+        //podesava selektovani element
+        private void UserControl_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (LastSelectedTermTile != null) {
+                LastSelectedTermTile.TileStrokeColor = "White";
+            }
+            var tile = (TermTile)sender;
+            tile.TileStrokeColor = "Red";
+            var grid = ((Grid)tile.Parent);
+            LastSelectedTermTile = tile;
+            
+
+            
+        }
+
+        
     }
 }

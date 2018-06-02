@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ScheduleApp"
         xmlns:view="clr-namespace:ScheduleApp.view"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" KeyDown="Window_KeyDown">
     <Grid>
         <view:MainScheduleView></view:MainScheduleView>
     </Grid>

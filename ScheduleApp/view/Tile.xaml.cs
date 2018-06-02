@@ -98,6 +98,11 @@ namespace ScheduleApp.view
                     tilesToMark = TilesUtil.GetTiles(grid, oldCoordinates);
                     TilesUtil.MarkTiles(tilesToMark, null);
 
+                    //ukoliko je stara plocica bila selektovana pre prevlacenja, nova mora biti isto
+                    if (oldTermTile.Equals(TermTile.LastSelectedTermTile)) {
+                        TermTile.LastSelectedTermTile = termTile;
+                    }
+
                     grid.Children.Remove(oldTermTile);
 
 
@@ -111,5 +116,13 @@ namespace ScheduleApp.view
 
         }
 
+        private void UserControl_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (TermTile.LastSelectedTermTile != null) {
+                TermTile.LastSelectedTermTile.TileStrokeColor = "White";
+                TermTile.LastSelectedTermTile = null;
+            }
+            
+        }
     } 
 }
