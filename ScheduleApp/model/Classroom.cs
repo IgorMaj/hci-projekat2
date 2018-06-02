@@ -22,6 +22,12 @@ namespace ScheduleApp.model
         public bool HasSmartTable { get; set; }
         public ClassroomOS OS { get; set; }
         public virtual List<ClassroomSoftware> InstalledSoftware { get; set; }
+        public virtual List<Term> Terms { get; set; }
+
+        public override string ToString()
+        {
+            return Label;
+        }
 
     }
 }

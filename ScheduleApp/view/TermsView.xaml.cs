@@ -22,27 +22,56 @@ namespace ScheduleApp.view
     /// </summary>
     public partial class TermsView : UserControl
     {
-        private ObservableCollection<Term> terms;
+        
         private List<string> timeList = new List<string>();
-        private int numWorkingDays = 6;
-        private int numPossibleTimes = 60;
+        private int numWorkingDays = 6; //neophodno zbog grida
+        private int numPossibleTimes = 60; //isto
 
         private TimeSpan startSpan = new TimeSpan(7,0,0);
         private TimeSpan incrementSpan = new TimeSpan(0, 15, 0);
         private TimeSpan endSpan = new TimeSpan(22,0,0);
+
+        private Classroom chosenClassroom;
         
+        public Classroom ChosenClassroom { get { return chosenClassroom; }
+            set {
+                chosenClassroom = value;
+                ClearGridOfTerms();
+                FillGridWithTerms();
+            } }
+
+        private void ClearGridOfTerms()
+        {
+            List<TermTile> childrenToRemove = new List<TermTile>();
+
+            foreach (UIElement child in grid.Children) {
+                if (child is Tile)
+                {
+                    ((Tile)child).Taken = null;
+                }
+                else if (child is TermTile) {
+                    childrenToRemove.Add((TermTile)child);
+                }
+
+            }
+
+            foreach(TermTile tTile in childrenToRemove) {
+                grid.Children.Remove(tTile);
+            }
+        }
+
         public TermsView()
         {
             InitializeComponent();
-            terms = new ObservableCollection<Term>(); //ovo ce biti povezano s ucionicom!
-            terms.Add(new Term() { Day = WEEKDAY.MONDAY, Time = new TimeSpan(7, 45, 0), Subject = new Subject() { Label = "P1" }, Length = 1 });
-            terms.Add(new Term() { Day = WEEKDAY.TUESDAY, Time = new TimeSpan(8, 30, 0), Subject = new Subject() { Label = "P2" }, Length = 1});
-            terms.Add(new Term() { Day = WEEKDAY.WEDNESDAY, Time = new TimeSpan(9, 15, 0), Subject = new Subject() { Label = "P3" },Length=2 });
-            terms.Add(new Term() { Day = WEEKDAY.THURSDAY, Time = new TimeSpan(9, 15, 0), Subject = new Subject() { Label = "P4" },Length=3 });
-            DataContext = terms;
+
+            ChosenClassroom = new Classroom() { Terms = new List<Term>() };
+            DataContext = ChosenClassroom;
             DrawGrid();
-            FillGridWithTerms();
+            //FillGridWithTerms();
         }
+
+
+       
 
        
 
@@ -119,7 +148,7 @@ namespace ScheduleApp.view
 
         private void FillGridWithTerms()
         {
-            foreach(Term t in terms) {
+            foreach(Term t in ChosenClassroom.Terms) {
                 Tuple<int, int> position = CalculatePosition(t);
 
                 var tile = new TermTile() { Term = t, TileText = t.Subject.Label };

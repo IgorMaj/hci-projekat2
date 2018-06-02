@@ -1,4 +1,5 @@
 ﻿using ScheduleApp.model;
+using ScheduleApp.repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -79,8 +80,8 @@ namespace ScheduleApp.view
                 time = time.Add(new TimeSpan(0,45,0));
                 i++;
             }
-
             Term.Time = time;
+            JSONUtil.Save();
         }
 
         public bool Equals(TermTile obj) {
