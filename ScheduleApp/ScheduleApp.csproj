@@ -71,6 +71,7 @@
     <Compile Include="view\Tile.xaml.cs">
       <DependentUpon>Tile.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\TilesUtil.cs" />
     <Compile Include="view\WeekDayView.xaml.cs">
       <DependentUpon>WeekDayView.xaml</DependentUpon>
     </Compile>

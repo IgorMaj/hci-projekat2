@@ -8,6 +8,6 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Rectangle Fill="{Binding Path=TileColor}" Stroke="{Binding Path=TileStrokeColor}" StrokeThickness="{Binding Path=StrokeThickness}"/>
-        <TextBlock Text="{Binding Path=TileText}" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="{Binding TextFontSize}"/>
+        <TextBlock Text="{Binding Path=TileText}" Margin="5" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="{Binding TextFontSize}"/>
     </Grid>
 </UserControl>

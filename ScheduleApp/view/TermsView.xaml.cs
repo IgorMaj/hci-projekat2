@@ -83,7 +83,7 @@ namespace ScheduleApp.view
                 startTime = startTime.Add(incrementSpan);
             } while (TimeSpan.Compare(startTime, endTime) != 0);
 
-            timeList.Add(AddZero(endTime.Hours) + ":" + AddZero(endTime.Minutes));
+            //timeList.Add(AddZero(endTime.Hours) + ":" + AddZero(endTime.Minutes));
 
         }
     
@@ -95,11 +95,11 @@ namespace ScheduleApp.view
                 
                 grid.ColumnDefinitions.Add(new ColumnDefinition() {MinWidth=150,MaxWidth=150});
             }
-            for (int j = 0; j < numPossibleTimes+1; j++) {
+            for (int j = 0; j < numPossibleTimes; j++) {
                 grid.RowDefinitions.Add(new RowDefinition());
             }
             CreateTimelineView();
-            for (int i = 0; i < numPossibleTimes+1; i++) {
+            for (int i = 0; i < numPossibleTimes; i++) {
                 for (int j = 1; j < numWorkingDays+1; j++) {
                     var tile = new Tile() { TileText = "", TileStrokeColor = "Gray" };
                     Grid.SetRow(tile,i);
@@ -113,29 +113,23 @@ namespace ScheduleApp.view
         }
 
 
-        private UIElement GetChild(Tuple<int,int> position)
-        {
-            foreach (UIElement child in grid.Children)
-            {
-                if (Grid.GetRow(child) == position.Item1
-                      &&
-                   Grid.GetColumn(child) == position.Item2)
-                {
-                    return child;
-                }
-            }
+        
 
-            return null;
-        }
+        
 
         private void FillGridWithTerms()
         {
             foreach(Term t in terms) {
                 Tuple<int, int> position = CalculatePosition(t);
+
                 var tile = new TermTile() { Term = t, TileText = t.Subject.Label };
                 Grid.SetColumn(tile, position.Item2);
                 Grid.SetRow(tile, position.Item1);
                 Grid.SetRowSpan(tile,t.Length*3);
+                var coordinates = TilesUtil.GetAllTermCoordinates(position.Item1,position.Item2,Grid.GetRowSpan(tile));
+                var tiles = TilesUtil.GetTiles(grid, coordinates);
+                TilesUtil.MarkTiles(tiles,tile);
+
                 grid.Children.Add(tile);
                 tile.TileColor = "Yellow";
             }

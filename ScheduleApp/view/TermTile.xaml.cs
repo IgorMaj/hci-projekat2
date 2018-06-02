@@ -82,5 +82,9 @@ namespace ScheduleApp.view
 
             Term.Time = time;
         }
+
+        public bool Equals(TermTile obj) {
+            return Term == obj.Term;
+        }
     }
 }
