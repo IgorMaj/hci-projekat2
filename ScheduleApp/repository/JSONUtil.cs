@@ -58,7 +58,7 @@ namespace ScheduleApp.repository
             classroom2.InstalledSoftware.Add(new ClassroomSoftware() { Label = "S2", Description = "Ovo je neki softver", Name = "Software2", OS = ClassroomOS.WINDOWS_AND_LINUX, Price = 45 });
             classroom2.Terms = new List<Term>();
 
-            Subject subj3 = new Subject() { Label = "P2", Description = "Ovo je neki drugi predmet", OSRequired = ClassroomOS.WINDOWS, NumRequiredTerms = 2, MinimalTermLength = 2, SoftwareRequired = new List<ClassroomSoftware>() };
+            Subject subj3 = new Subject() { Label = "P3", Description = "Ovo je neki treci predmet", OSRequired = ClassroomOS.WINDOWS, NumRequiredTerms = 2, MinimalTermLength = 2, SoftwareRequired = new List<ClassroomSoftware>() };
             Term t3 = new Term();
             t3.Classroom = classroom2;
             t3.Day = WEEKDAY.SATURDAY;
@@ -67,14 +67,14 @@ namespace ScheduleApp.repository
             t3.Length = subj3.MinimalTermLength;
             classroom2.Terms.Add(t3);
 
-            Subject subj4 = new Subject() { Label = "P3", Description = "Ovo je neki drugi predmet", OSRequired = ClassroomOS.WINDOWS, NumRequiredTerms = 2, MinimalTermLength = 3, SoftwareRequired = new List<ClassroomSoftware>() };
+            Subject subj4 = new Subject() { Label = "P4", Description = "Ovo je neki drugi predmet", OSRequired = ClassroomOS.WINDOWS, NumRequiredTerms = 2, MinimalTermLength = 3, SoftwareRequired = new List<ClassroomSoftware>() };
             Term t4 = new Term();
             t4.Classroom = classroom2;
             t4.Day = WEEKDAY.FRIDAY;
-            t4.Subject = subj2;
+            t4.Subject = subj4;
             t4.Time = new TimeSpan(12, 0, 0);
             t4.Length = subj4.MinimalTermLength;
-            classroom1.Terms.Add(t4);
+            classroom2.Terms.Add(t4);
 
             ObservableCollection<Classroom> cLassrooms = new ObservableCollection<Classroom>();
             cLassrooms.Add(classroom1);
@@ -88,7 +88,7 @@ namespace ScheduleApp.repository
             container.AvailableSubjects.Add(subj4);
             var json = JsonConvert.SerializeObject(container, new JsonSerializerSettings()
             {
-                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+               PreserveReferencesHandling = PreserveReferencesHandling.Objects,
                 Formatting = Formatting.Indented
             });
             sw.Write(json);
@@ -113,7 +113,7 @@ namespace ScheduleApp.repository
             StreamWriter sw = new StreamWriter(Path);
             var json = JsonConvert.SerializeObject(Obj, new JsonSerializerSettings()
             {
-                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                PreserveReferencesHandling = PreserveReferencesHandling.Objects,
                 Formatting = Formatting.Indented
             });
             sw.Write(json);
