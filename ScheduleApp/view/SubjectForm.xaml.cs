@@ -102,6 +102,7 @@ namespace ScheduleApp.view
             parent.application.writeData();
             e.Handled = true;
             Clear();
+            MessageBoxResult result = MessageBox.Show("Successfully added subject.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)

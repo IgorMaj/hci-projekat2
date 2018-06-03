@@ -62,8 +62,10 @@ namespace ScheduleApp.view
             parent.application.writeData();
             e.Handled = true;
             Clear();
+            MessageBoxResult result = MessageBox.Show("Successfully added department.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+
         }
-        
+
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {

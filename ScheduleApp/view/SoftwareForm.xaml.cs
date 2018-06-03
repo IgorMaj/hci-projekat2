@@ -68,10 +68,12 @@ namespace ScheduleApp.view
             DateTime dt;
             DateTime.TryParse(in_date.Text, out dt);
             Software.YearOfPublication = dt;
-            parent.application.clasroomSoft.Add(Software);
+            parent.application.classroomSoft.Add(Software);
             parent.application.writeData();
             e.Handled = true;
             Clear();
+            MessageBoxResult result = MessageBox.Show("Successfully added software.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)

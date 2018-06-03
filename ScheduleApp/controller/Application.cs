@@ -18,7 +18,7 @@ namespace ScheduleApp.controller
         public List<Term> terms = new List<Term>();
         public ObservableCollection<Subject> subjects = new ObservableCollection<Subject>();
         public List<Department> departments = new List<Department>();
-        public List<ClassroomSoftware> clasroomSoft = new List<ClassroomSoftware>();
+        public List<ClassroomSoftware> classroomSoft = new List<ClassroomSoftware>();
         public Application() { }
         public void writeData()
         {

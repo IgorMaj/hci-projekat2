@@ -27,7 +27,7 @@ namespace ScheduleApp.view
             this.parent = parent;
             InitializeComponent();
 
-            foreach (ClassroomSoftware soft in parent.parent.application.clasroomSoft)
+            foreach (ClassroomSoftware soft in parent.parent.application.classroomSoft)
             {
                 dg_all.Items.Add(soft);
             }
