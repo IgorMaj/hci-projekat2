@@ -24,6 +24,8 @@ namespace ScheduleApp.view
         public Subject Subject;
         public MainWindow parent;
         private int _noOfErrorsOnScreen = 0;
+        string action;
+        TableView scheduleView;
 
         public SubjectForm(MainWindow parent)
         {
@@ -33,6 +35,36 @@ namespace ScheduleApp.view
             Subject.SoftwareRequired = new List<ClassroomSoftware>();
             DepCb.ItemsSource = parent.application.departments;
             DepCb.SelectedIndex = 0;
+            action = "added";
+            grid.DataContext = Subject;
+        }
+
+        public SubjectForm(MainWindow parent, Subject Subject, TableView scheduleView)
+        {
+            this.parent = parent;
+            this.scheduleView = scheduleView;
+            InitializeComponent();
+            this.Subject = Subject;
+            DepCb.ItemsSource = parent.application.departments;
+            DepCb.SelectedIndex = 0;
+            for (int i = 0; i < DepCb.Items.Count; i++)
+            {
+                if (((Department)DepCb.Items[i]) == Subject.Department)
+                {
+                    DepCb.SelectedIndex = i;
+                    break;
+                }
+            }
+            in_label.Text = Subject.Label;
+            in_name.Text = Subject.Name;
+            in_description.Text = Subject.Description;
+            in_groupSize.Text = Subject.GroupSize.ToString();
+            in_minLength.Text = Subject.MinimalTermLength.ToString();
+            in_numberRequiredTerms.Text = Subject.NumRequiredTerms.ToString();
+            check_projector.IsChecked = Subject.ProjectorRequired;
+            check_table.IsChecked = Subject.TableRequired;
+            check_smart.IsChecked = Subject.SmartTableRequired;
+            action = "edited";
             grid.DataContext = Subject;
         }
 
@@ -98,11 +130,19 @@ namespace ScheduleApp.view
             {
                 Subject.OSRequired = ClassroomOS.WINDOWS_AND_LINUX;
             }
-            parent.application.subjects.Add(Subject);
+            if (action.Equals("added"))
+            {
+                parent.application.subjects.Add(Subject);
+                Clear();
+                MessageBoxResult result = MessageBox.Show("Successfully added subject.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                parent.returnTable(scheduleView);
+            }
             parent.application.writeData();
             e.Handled = true;
-            Clear();
-            MessageBoxResult result = MessageBox.Show("Successfully added subject.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
@@ -115,7 +155,14 @@ namespace ScheduleApp.view
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            parent.returnOriginal();
+            if (action.Equals("added"))
+            {
+                parent.returnOriginal();
+            }
+            else
+            {
+                parent.returnTable(scheduleView);
+            }
         }
 
         private void Clear()

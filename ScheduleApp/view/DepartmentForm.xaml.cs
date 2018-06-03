@@ -24,18 +24,31 @@ namespace ScheduleApp.view
         public Department department;
         public MainWindow parent;
         private int _noOfErrorsOnScreen = 0;
+        string action;
+        TableView scheduleView;
+
         public DepartmentForm(MainWindow parent)
-
         {
-
             this.parent = parent;
             InitializeComponent();
-
-
             department = new Department();
+            action = "added";
             grid.DataContext = department;
-
         }
+        public DepartmentForm(MainWindow parent, Department department, TableView scheduleView)
+        {
+            this.parent = parent;
+            this.scheduleView = scheduleView;
+            InitializeComponent();
+            this.department = department;
+            in_label.Text = department.Label;
+            in_description.Text = department.Description;
+            in_name.Text = department.Name;
+            in_date.Text = department.DateOfIntroduction.ToString();
+            action = "edited";
+            grid.DataContext = department;
+        }
+
         private void Validation_Error(object sender, ValidationErrorEventArgs e)
         {
             if (e.Action == ValidationErrorEventAction.Added)
@@ -58,18 +71,31 @@ namespace ScheduleApp.view
             DateTime dt;
             DateTime.TryParse(in_date.Text, out dt);
             department.DateOfIntroduction = dt;
-            parent.application.departments.Add(department);
+            if (action.Equals("added"))
+            {
+                parent.application.departments.Add(department);
+                Clear();
+                MessageBoxResult result = MessageBox.Show("Successfully added department.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                parent.returnTable(scheduleView);
+            }
             parent.application.writeData();
             e.Handled = true;
-            Clear();
-            MessageBoxResult result = MessageBox.Show("Successfully added department.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-
         }
 
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            parent.returnOriginal();
+            if (action.Equals("added"))
+            {
+                parent.returnOriginal();
+            }
+            else
+            {
+                parent.returnTable(scheduleView);
+            }
         }
 
         private void Clear()

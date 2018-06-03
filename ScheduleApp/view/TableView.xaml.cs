@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScheduleApp.model;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -25,15 +26,14 @@ namespace ScheduleApp.view
         public controller.Application application = MainWindow.GetApplication();
         private Dictionary<string, Object> options = new Dictionary<string, object>();
         public ObservableCollection<string> optionList = new ObservableCollection<string>();
+        public MainWindow parent;
 
-        
 
-        public TableView()
+        public TableView(MainWindow parent)
         {
+            this.parent = parent;
             InitializeComponent();
             DataContext = this;
-
-
         }
 
         private void initOptions() {
@@ -54,6 +54,70 @@ namespace ScheduleApp.view
             
             
            
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            if (dataGrid == null) { return; }
+            initOptions();
+            string arg = ((ComboBoxItem)selectCollection.SelectedItem).Content.ToString();
+            switch (arg)
+            {
+                case "Classrooms":
+                    {
+                        Classroom classroom = (Classroom)dataGrid.SelectedItem;
+                        if (classroom != null)
+                        {
+                            ClassroomForm classroomForm = new ClassroomForm(parent, classroom, this);
+                            parent.Title = "Classroom edit form";
+                            parent.ChangeElement(classroomForm);
+                        }
+                        else
+                        {
+                            MessageBoxResult result = MessageBox.Show("You must select classroom to edit first.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                    }
+                    break;
+                case "Departments":
+                    Department department = (Department)dataGrid.SelectedItem;
+                    if (department != null)
+                    {
+                        DepartmentForm departmentForm = new DepartmentForm(parent, department, this);
+                        parent.Title = "Department edit form";
+                        parent.ChangeElement(departmentForm);
+                    }
+                    else
+                    {
+                        MessageBoxResult result = MessageBox.Show("You must select department to edit first.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    break;
+                case "Classroom software":
+                    ClassroomSoftware classroomSoftware = (ClassroomSoftware)dataGrid.SelectedItem;
+                    if (classroomSoftware != null)
+                    {
+                        SoftwareForm softwareForm = new SoftwareForm(parent, classroomSoftware, this);
+                        parent.Title = "Software edit form";
+                        parent.ChangeElement(softwareForm);
+                    }
+                    else
+                    {
+                        MessageBoxResult result = MessageBox.Show("You must select software to edit first.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    break;
+                case "Subjects":
+                    Subject subject = (Subject)dataGrid.SelectedItem;
+                    if (subject != null)
+                    {
+                        SubjectForm subjectForm = new SubjectForm(parent, subject, this);
+                        parent.Title = "Subject edit form";
+                        parent.ChangeElement(subjectForm);
+                    }
+                    else
+                    {
+                        MessageBoxResult result = MessageBox.Show("You must select subject to edit first.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    break;
+            }
         }
     }
 }

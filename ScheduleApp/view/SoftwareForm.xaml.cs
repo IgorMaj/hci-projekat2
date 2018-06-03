@@ -25,6 +25,8 @@ namespace ScheduleApp.view
         public ClassroomSoftware Software;
         public MainWindow parent;
         private int _noOfErrorsOnScreen = 0;
+        string action;
+        TableView scheduleView;
 
         public SoftwareForm(MainWindow parent)
         {
@@ -33,6 +35,34 @@ namespace ScheduleApp.view
             InitializeComponent();
             OsCb.ItemsSource = Enum.GetValues(typeof(ClassroomOS)).Cast<ClassroomOS>();
             OsCb.SelectedIndex = 0;
+            action = "added";
+            grid.DataContext = Software;
+        }
+
+        public SoftwareForm(MainWindow parent, ClassroomSoftware Software, TableView scheduleView)
+        {
+            this.parent = parent;
+            this.scheduleView = scheduleView;
+            this.Software = Software;
+            InitializeComponent();
+            OsCb.ItemsSource = Enum.GetValues(typeof(ClassroomOS)).Cast<ClassroomOS>();
+            OsCb.SelectedIndex = 0;
+            for (int i = 0; i < OsCb.Items.Count; i++)
+            {
+                if (((ClassroomOS)OsCb.Items[i]) == Software.OS)
+                {
+                    OsCb.SelectedIndex = i;
+                    break;
+                }
+            }
+            in_label.Text = Software.Label;
+            in_description.Text = Software.Description;
+            in_name.Text = Software.Name;
+            in_price.Text = Software.Price.ToString();
+            in_site.Text = Software.Site;
+            in_vendor.Text = Software.Vendor;
+            in_date.Text = Software.YearOfPublication.ToString();
+            action = "edited";
             grid.DataContext = Software;
         }
 
@@ -68,17 +98,31 @@ namespace ScheduleApp.view
             DateTime dt;
             DateTime.TryParse(in_date.Text, out dt);
             Software.YearOfPublication = dt;
-            parent.application.classroomSoft.Add(Software);
+            
+            if (action.Equals("added"))
+            {
+                parent.application.classroomSoft.Add(Software);
+                Clear();
+                MessageBoxResult result = MessageBox.Show("Successfully added software.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                parent.returnTable(scheduleView);
+            }
             parent.application.writeData();
             e.Handled = true;
-            Clear();
-            MessageBoxResult result = MessageBox.Show("Successfully added software.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            parent.returnOriginal();
+            if (action.Equals("added"))
+            {
+                parent.returnOriginal();
+            }
+            else
+            {
+                parent.returnTable(scheduleView);
+            }
         }
         private void Clear()
         {

@@ -71,7 +71,7 @@ namespace ScheduleApp
             
         }
 
-        private void ChangeElement(UIElement element) {
+        public void ChangeElement(UIElement element) {
             mainImage.Visibility = Visibility.Collapsed;
             if (currentMainElement != null) {
               grid.Children.Remove(currentMainElement);
@@ -83,7 +83,7 @@ namespace ScheduleApp
 
         private void Tables_Click_1(object sender, RoutedEventArgs e)
         {
-            TableView scheduleView = new TableView();
+            TableView scheduleView = new TableView(this);
             Title = "Table view";
             ChangeElement(scheduleView);
         }
@@ -95,6 +95,19 @@ namespace ScheduleApp
             {
                 grid.Children.Remove(currentMainElement);
             }
+        }
+
+        public void returnTable(TableView scheduleView)
+        {
+            mainImage.Visibility = Visibility.Collapsed;
+            if (currentMainElement != null)
+            {
+                grid.Children.Remove(currentMainElement);
+            }
+            Grid.SetRow(scheduleView, 1);
+            grid.Children.Add(scheduleView);
+            currentMainElement = scheduleView;
+            scheduleView.dataGrid.Items.Refresh();
         }
 
         private void DepartmentForm_Click(object sender, RoutedEventArgs e)

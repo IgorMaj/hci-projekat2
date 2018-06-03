@@ -7,18 +7,24 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="333*"/>
+            <ColumnDefinition Width="112*"/>
+            <ColumnDefinition Width="355*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
-        <ComboBox Grid.Row="0" Name="selectCollection" SelectionChanged="dataGrid_SelectionChanged">
+        <ComboBox Grid.Row="0" Name="selectCollection" SelectionChanged="dataGrid_SelectionChanged" Grid.ColumnSpan="3" Margin="0,0,0,0.4">
 
             <ComboBoxItem Content="Classrooms"/>
             <ComboBoxItem Content="Departments"/>
             <ComboBoxItem Content="Classroom software"/>
             <ComboBoxItem Content="Subjects"/>
         </ComboBox>
-        <DataGrid Grid.Row="1" Name="dataGrid" IsReadOnly="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        </DataGrid>
+        <DataGrid Name="dataGrid" IsReadOnly="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Margin="0,30,0,0" Grid.RowSpan="2"/>
+        <Button Name="Edit" Content="Edit" Grid.Column="1"  Grid.Row="2" Click="Edit_Click"/>
     </Grid>
 </UserControl>

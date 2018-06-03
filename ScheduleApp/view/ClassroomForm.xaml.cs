@@ -25,6 +25,8 @@ namespace ScheduleApp.view
         public Classroom Classroom;
         public MainWindow parent;
         private int _noOfErrorsOnScreen = 0;
+        string action;
+        TableView scheduleView;
 
         public ClassroomForm(MainWindow parent)
         {
@@ -34,8 +36,36 @@ namespace ScheduleApp.view
             Classroom.InstalledSoftware = new List<ClassroomSoftware>();
             OsCb.ItemsSource = Enum.GetValues(typeof(ClassroomOS)).Cast<ClassroomOS>();
             OsCb.SelectedIndex = 0;
+            action = "added";
             grid.DataContext = Classroom;
             
+        }
+
+        public ClassroomForm(MainWindow parent, Classroom Classroom, TableView scheduleView)
+        {
+            this.parent = parent;
+            this.scheduleView = scheduleView;
+            InitializeComponent();
+            this.Classroom = Classroom;
+            OsCb.ItemsSource = Enum.GetValues(typeof(ClassroomOS)).Cast<ClassroomOS>();
+            OsCb.SelectedIndex = 0;
+            for (int i=0; i< OsCb.Items.Count; i++)
+            {
+                if (((ClassroomOS)OsCb.Items[i]) == Classroom.OS)
+                {
+                    OsCb.SelectedIndex = i;
+                    break;
+                }
+            }
+            in_label.Text = Classroom.Label;
+            in_description.Text = Classroom.Description;
+            in_employees.Text = Classroom.NumOfEmployees.ToString();
+            check_projector.IsChecked = Classroom.HasProjector;
+            check_table.IsChecked = Classroom.HasTable;
+            check_smart.IsChecked = Classroom.HasSmartTable;
+            action = "edited";
+            grid.DataContext = Classroom;
+
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -67,12 +97,19 @@ namespace ScheduleApp.view
             Classroom.HasTable = (bool)check_table.IsChecked;
             Classroom.HasSmartTable = (bool)check_smart.IsChecked;
             Classroom.OS = (ClassroomOS)OsCb.SelectedValue;
-            parent.application.classrooms.Add(Classroom);
+
+            if (action.Equals("added"))
+            {
+                parent.application.classrooms.Add(Classroom);
+                Clear();
+                MessageBoxResult result = MessageBox.Show("Successfully added classroom.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                parent.returnTable(scheduleView);
+            }
             parent.application.writeData();
             e.Handled = true;
-            Clear();
-            MessageBoxResult result = MessageBox.Show("Successfully added classroom.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
@@ -85,7 +122,14 @@ namespace ScheduleApp.view
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            parent.returnOriginal();
+            if (action.Equals("added"))
+            {
+                parent.returnOriginal();
+            }
+            else
+            {
+                parent.returnTable(scheduleView);
+            }
         }
 
         private void Clear()
