@@ -43,7 +43,10 @@ namespace ScheduleApp
         {
             if (e.Key == Key.Delete)
             {
-                TilesUtil.DeleteSelectedTile();
+                if (currentMainElement is MainScheduleView) {
+                    TilesUtil.DeleteSelectedTile();
+                }
+                
                 e.Handled = true;
             }
         }

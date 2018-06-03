@@ -27,7 +27,8 @@
         <DataGrid Name="dataGrid" AutoGeneratingColumn="dataGrid_AutoGeneratingColumn" IsReadOnly="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Margin="0,30,0,0" Grid.RowSpan="2"/>
         <StackPanel HorizontalAlignment="Center"  Grid.Row="2" Orientation="Horizontal">
             <Button Name="Edit" Content="Edit" Click="Edit_Click" Width="80"/>
-            <Button Name="deleteButton" Content="Delete" Click="deleteButton_Click" Width="80"></Button>
+            <Button Name="deleteButton" Content="Delete" Click="deleteButton_Click"  Width="80">
+            </Button>
         </StackPanel>
     </Grid>
 </UserControl>

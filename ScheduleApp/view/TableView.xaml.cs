@@ -62,7 +62,10 @@ namespace ScheduleApp.view
             
            
         }
-	private void dataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+
+        
+
+        private void dataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
             PropertyDescriptor propertyDescriptor = (PropertyDescriptor)e.PropertyDescriptor;
             e.Column.Header = propertyDescriptor.DisplayName;
@@ -74,8 +77,11 @@ namespace ScheduleApp.view
 
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
-            var selectedItem = dataGrid.SelectedItem;
-            application.RemoveCompletely(selectedItem);
+            if(MessageBox.Show("Are you sure you want to delete the selected entity? Any depending entities will also be deleted.", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes){
+                var selectedItem = dataGrid.SelectedItem;
+                application.RemoveCompletely(selectedItem);
+            }
+            
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
@@ -141,5 +147,7 @@ namespace ScheduleApp.view
                     break;
             }
         }
+
+        
     }
 }
