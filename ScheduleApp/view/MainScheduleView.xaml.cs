@@ -24,6 +24,7 @@ namespace ScheduleApp.view
     public partial class MainScheduleView : UserControl
     {
         public ObservableCollection<Classroom> Classrooms { get; set; }
+        public ObservableCollection<Subject> AvailableSubjects { get; set; }
 
         public MainScheduleView()
         {
@@ -53,11 +54,10 @@ namespace ScheduleApp.view
 
         private void loadButton_Click(object sender, RoutedEventArgs e)
         {
-            
-            Classrooms = JSONUtil.LoadClassrooms(pathTextBox.Text);
+            var container = JSONUtil.LoadContainer(pathTextBox.Text);
+            Classrooms = container.Classrooms;
             classroomPick.ItemsSource = Classrooms;
             classroomPickButton.IsEnabled = true;
-            JSONUtil.Obj = Classrooms;
 
         }
 

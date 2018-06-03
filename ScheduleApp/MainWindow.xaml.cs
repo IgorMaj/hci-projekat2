@@ -1,4 +1,5 @@
-﻿using ScheduleApp.view;
+﻿using ScheduleApp.repository;
+using ScheduleApp.view;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,7 @@ namespace ScheduleApp
         public MainWindow()
         {
             InitializeComponent();
+            //JSONUtil.CreateDummyData("data.json");
             
         }
 
