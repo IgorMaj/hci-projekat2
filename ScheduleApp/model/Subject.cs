@@ -45,6 +45,22 @@ namespace ScheduleApp.model
             }
         }
 
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Subject))
+            {
+                return false;
+            }
+            if (((Subject)obj).Label == null) {
+                return false;
+            }
+            return ((Subject)obj).Label.Equals(Label);
+        }
+
         public override string ToString()
         {
             return "Label: "+Label+"\nName:"+Name+"\nMinimal term length: "+MinimalTermLength+"\nNumber of required terms: "+NumRequiredTerms+"\n";

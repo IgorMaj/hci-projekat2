@@ -72,6 +72,12 @@ namespace ScheduleApp.view
             }
         }
 
+        private void deleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedItem = dataGrid.SelectedItem;
+            application.RemoveCompletely(selectedItem);
+        }
+
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
             if (dataGrid == null) { return; }

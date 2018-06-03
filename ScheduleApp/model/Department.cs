@@ -19,6 +19,23 @@ namespace ScheduleApp.model
             return Label;
         }
 
+        public override bool Equals(object obj)
+        {
+            if (obj == null) {
+                return false;
+            }
+            if (!(obj is Department)) {
+                return false;
+            }
+
+            if (((Department)obj).Label == null)
+            {
+                return false;
+            }
+
+            return ((Department)obj).Label.Equals(Label);
+        }
+
 
         #region IDataErrorInfo Members
 
