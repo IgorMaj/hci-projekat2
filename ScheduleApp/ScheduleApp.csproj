@@ -62,9 +62,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="controller\Application.cs" />
     <Compile Include="repository\JSONUtil.cs" />
+    <Compile Include="view\ClassroomForm.xaml.cs">
+      <DependentUpon>ClassroomForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\MainScheduleView.xaml.cs">
       <DependentUpon>MainScheduleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\SoftwareForClassroomForm.xaml.cs">
+      <DependentUpon>SoftwareForClassroomForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="view\SoftwareForm.xaml.cs">
+      <DependentUpon>SoftwareForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\TermsView.xaml.cs">
       <DependentUpon>TermsView.xaml</DependentUpon>
@@ -91,9 +101,21 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="view\ClassroomForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="view\MainScheduleView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\SoftwareForClassroomForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\SoftwareForm.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="view\TermsView.xaml">
       <SubType>Designer</SubType>
@@ -144,6 +166,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="student_center.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

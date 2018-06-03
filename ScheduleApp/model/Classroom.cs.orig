@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ScheduleApp.model
+{
+    public enum ClassroomOS { WINDOWS, LINUX, WINDOWS_AND_LINUX}
+    public class Classroom
+    {
+        public Classroom() { }
+        public string Label { get; set; }
+        public string Description { get; set; }
+        public int NumOfEmployees { get; set; }
+        public bool HasProjector { get; set; }
+        public bool HasTable { get; set; }
+        public bool HasSmartTable { get; set; }
+        public ClassroomOS OS { get; set; }
+        public virtual List<ClassroomSoftware> InstalledSoftware { get; set; }
+<<<<<<< Updated upstream
+        public virtual List<Term> Terms { get; set; }
+
+        public override string ToString()
+        {
+            return Label;
+        }
+
+=======
+>>>>>>> Stashed changes
+    }
+}
