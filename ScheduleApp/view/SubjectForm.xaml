@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScheduleApp.view"
         mc:Ignorable="d"
-        Height="402.805" Width="646.341">
+        Height="402.805" Width="845.541">
     <UserControl.Resources>
         <Style TargetType="{x:Type Label}">
             <Setter Property="Margin" Value="5,0,5,0" />
@@ -73,8 +73,8 @@
         <Label Content="Name:" Target="{Binding ElementName=in_name}" Grid.Column="0" Grid.Row="1"/>
         <Label Content="Department:" Target="{Binding ElementName=OsCb}" Grid.Column="0" Grid.Row="2"/>
         <Label Content="Group size:" Target="{Binding ElementName=in_groupSize}" Grid.Column="0" Grid.Row="3"/>
-        <Label Content="Minimal term length:" Target="{Binding ElementName=in_minLength}" Grid.Column="0" Grid.Row="4"/>
-        <Label Content="Number of required terms:" Target="{Binding ElementName=in_numberRequiredTerms}" Grid.Column="0" Grid.Row="5"/>
+        <Label Content="Number of 45 minute classes in term:" Target="{Binding ElementName=in_minLength}" Grid.Column="0" Grid.Row="4"/>
+        <Label Content="Required number of terms for subject:" Target="{Binding ElementName=in_numberRequiredTerms}" Grid.Column="0" Grid.Row="5"/>
         <Label Content="Required software:" Target="{Binding ElementName=Edit}" Grid.Column="0" Grid.Row="9"/>
         <Label Content="Description:" Target="{Binding ElementName=in_description}" Grid.Column="2" Grid.Row="0"/>
 
