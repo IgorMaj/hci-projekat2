@@ -24,7 +24,7 @@
             <ComboBoxItem Content="Classroom software"/>
             <ComboBoxItem Content="Subjects"/>
         </ComboBox>
-        <DataGrid Name="dataGrid" IsReadOnly="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Margin="0,30,0,0" Grid.RowSpan="2"/>
+        <DataGrid Name="dataGrid" AutoGeneratingColumn="dataGrid_AutoGeneratingColumn" IsReadOnly="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Margin="0,30,0,0" Grid.RowSpan="2"/>
         <Button Name="Edit" Content="Edit" Grid.Column="1"  Grid.Row="2" Click="Edit_Click"/>
     </Grid>
 </UserControl>

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,13 +28,15 @@ namespace ScheduleApp.view
         private Dictionary<string, Object> options = new Dictionary<string, object>();
         public ObservableCollection<string> optionList = new ObservableCollection<string>();
         public MainWindow parent;
-
+	private List<string> disallowedColumnNames = new List<String>();
 
         public TableView(MainWindow parent)
         {
             this.parent = parent;
             InitializeComponent();
             DataContext = this;
+            initOptions();
+
         }
 
         private void initOptions() {
@@ -42,18 +45,31 @@ namespace ScheduleApp.view
             options["Departments"] = application.departments;
             options["Classroom software"] = application.classroomSoft;
             options["Subjects"] = application.subjects;
+            disallowedColumnNames.Add("Error");
+            disallowedColumnNames.Add("Terms");
+            disallowedColumnNames.Add("InstalledSoftware");
+            disallowedColumnNames.Add("SoftwareRequired");
         }
 
         private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (dataGrid == null) { return; }
-            initOptions();
+            
             string arg = ((ComboBoxItem)selectCollection.SelectedItem).Content.ToString();
             object collection = options[arg];
             dataGrid.ItemsSource = (IEnumerable<Object>)collection;
             
             
            
+        }
+	private void dataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            PropertyDescriptor propertyDescriptor = (PropertyDescriptor)e.PropertyDescriptor;
+            e.Column.Header = propertyDescriptor.DisplayName;
+            if (disallowedColumnNames.Contains(propertyDescriptor.DisplayName))
+            {
+                e.Cancel = true;
+            }
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
