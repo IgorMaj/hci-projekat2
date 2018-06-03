@@ -81,6 +81,13 @@ namespace ScheduleApp
             currentMainElement = element;
         }
 
+        private void Tables_Click_1(object sender, RoutedEventArgs e)
+        {
+            TableView scheduleView = new TableView();
+            Title = "Table view";
+            ChangeElement(scheduleView);
+        }
+
         public void returnOriginal()
         {
             mainImage.Visibility = Visibility.Visible;

@@ -19,7 +19,7 @@
                 <MenuItem Name="SubjectForm" Header="Subject" Click="SubjectForm_Click"/>
                 <MenuItem Name="ClassroomForm" Header="Classroom" Click="ClassroomForm_Click"/>
             </MenuItem>
-            <MenuItem Header="Tables">
+            <MenuItem Header="Tables" Click="Tables_Click_1">
             </MenuItem>
             <MenuItem Header="Schedule" Click="MenuItem_Click">
             </MenuItem>

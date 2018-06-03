@@ -84,6 +84,9 @@
     <Compile Include="view\SubjectForm.xaml.cs">
       <DependentUpon>SubjectForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="view\TableView.xaml.cs">
+      <DependentUpon>TableView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="view\TermsView.xaml.cs">
       <DependentUpon>TermsView.xaml</DependentUpon>
     </Compile>
@@ -136,6 +139,10 @@
     <Page Include="view\SubjectForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\TableView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="view\TermsView.xaml">
       <SubType>Designer</SubType>
