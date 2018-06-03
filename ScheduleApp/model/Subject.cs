@@ -23,6 +23,8 @@ namespace ScheduleApp.model
         public int GroupSize { get; set; }
         public int MinimalTermLength { get; set; } //u jedinicama od po 45 minuta
 
+
+
         public int NumRequiredTerms {
             get { return numRequiredTerms; }
            set {
@@ -35,6 +37,11 @@ namespace ScheduleApp.model
         public bool SmartTableRequired { get; set; }
         public ClassroomOS OSRequired { get; set; }
         public virtual List<ClassroomSoftware> SoftwareRequired { get; set; }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
 
         private void OnPropertyChanged(string name)
         {
@@ -63,7 +70,7 @@ namespace ScheduleApp.model
 
         public override string ToString()
         {
-            return "Label: "+Label+"\nName:"+Name+"\nMinimal term length: "+MinimalTermLength+"\nNumber of required terms: "+NumRequiredTerms+"\n";
+            return "Label: "+Label+"\nName:"+Name+"\nMinimal term length(in mins): "+MinimalTermLength*45+"\nNumber of required terms: "+NumRequiredTerms+"\n";
         }
         #region IDataErrorInfo Members
 

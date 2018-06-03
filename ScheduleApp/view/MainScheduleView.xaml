@@ -14,16 +14,17 @@
         <Grid Grid.Column="0">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"></RowDefinition>
-            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+            
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal" Margin="5">
+                <Label Content="Classroom:"></Label>
                 <ComboBox Margin="50,0,10,0" Name="classroomPick" SelectedIndex="0" SelectionChanged="classroomPick_SelectionChanged" ItemsSource="{Binding Path=Classrooms}" DisplayMemberPath="Label"></ComboBox>
         </StackPanel>
-        <local:WeekDayView  x:Name="weekDayView" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Stretch"></local:WeekDayView>
+        
             <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
-                <Grid>
+                <Grid HorizontalAlignment="Stretch">
                     <local:TermsView x:Name="termsView"></local:TermsView>
                 </Grid>
             </ScrollViewer>

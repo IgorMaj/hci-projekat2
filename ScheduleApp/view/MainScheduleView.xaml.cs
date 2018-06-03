@@ -45,6 +45,7 @@ namespace ScheduleApp.view
             {
                 termsView.ChosenClassroom = (Classroom)classroomPick.SelectedItem;
             }
+            
         }
 
         private void SubjectsView_MouseMove(object sender, MouseEventArgs e)

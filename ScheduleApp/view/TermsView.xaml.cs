@@ -31,6 +31,9 @@ namespace ScheduleApp.view
         private TimeSpan incrementSpan = new TimeSpan(0, 15, 0);
         private TimeSpan endSpan = new TimeSpan(22,0,0);
 
+        private List<string> days = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+        private Tile firstTile = new Tile() { TileText = "Days:" };
+
         private Classroom chosenClassroom;
         
         public Classroom ChosenClassroom { get { return chosenClassroom; }
@@ -80,7 +83,7 @@ namespace ScheduleApp.view
         {
             InitializeComponent();
             GenerateTimeList();
-            int i = 0;
+            int i = 1;
             foreach (string time in timeList)
             {
                 var tile = new Tile() { TileColor = "#E8E8E8", TileStrokeColor = "Gray", TileText = time };
@@ -119,16 +122,17 @@ namespace ScheduleApp.view
 
     private void DrawGrid()
         {
-           
+            
             for (int i = 0; i < numWorkingDays+1; i++) {
                 
-                grid.ColumnDefinitions.Add(new ColumnDefinition() {MinWidth=150,MaxWidth=150});
+                grid.ColumnDefinitions.Add(new ColumnDefinition());
             }
-            for (int j = 0; j < numPossibleTimes; j++) {
+            for (int j = 0; j < numPossibleTimes+1; j++) {
                 grid.RowDefinitions.Add(new RowDefinition());
             }
+            DrawWeekDayView();
             CreateTimelineView();
-            for (int i = 0; i < numPossibleTimes; i++) {
+            for (int i = 1; i < numPossibleTimes+1; i++) {
                 for (int j = 1; j < numWorkingDays+1; j++) {
                     var tile = new Tile() { TileText = "", TileStrokeColor = "Gray" };
                     Grid.SetRow(tile,i);
@@ -141,10 +145,23 @@ namespace ScheduleApp.view
             
         }
 
+        private void DrawWeekDayView()
+        {
+            Grid.SetRow(firstTile, 0);
+            Grid.SetColumn(firstTile, 0);
+            grid.Children.Add(firstTile);
+            int column = 1;
 
-        
+            foreach (string day in days)
+            {
+                var tile = new Tile() { TileText = day, TileStrokeColor = "Gray", TileColor = "#E8E8E8" };
+                Grid.SetRow(tile, 0);
+                Grid.SetColumn(tile, column);
+                column++;
+                grid.Children.Add(tile);
+            }
 
-        
+        }
 
         private void FillGridWithTerms()
         {

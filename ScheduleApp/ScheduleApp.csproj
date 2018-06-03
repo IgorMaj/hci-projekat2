@@ -97,9 +97,6 @@
       <DependentUpon>Tile.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\TilesUtil.cs" />
-    <Compile Include="view\WeekDayView.xaml.cs">
-      <DependentUpon>WeekDayView.xaml</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -153,10 +150,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\Tile.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="view\WeekDayView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

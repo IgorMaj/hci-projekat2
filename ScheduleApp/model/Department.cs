@@ -19,6 +19,11 @@ namespace ScheduleApp.model
             return Label;
         }
 
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
         public override bool Equals(object obj)
         {
             if (obj == null) {
