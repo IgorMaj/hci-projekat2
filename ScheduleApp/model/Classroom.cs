@@ -13,7 +13,7 @@ namespace ScheduleApp.model
        
 
         public Classroom() {
-
+            Terms = new List<Term>();
         }
         public string Label { get; set; }
         public string Description { get; set; }

@@ -35,6 +35,7 @@ namespace ScheduleApp.view
             OsCb.ItemsSource = Enum.GetValues(typeof(ClassroomOS)).Cast<ClassroomOS>();
             OsCb.SelectedIndex = 0;
             grid.DataContext = Classroom;
+            
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -69,7 +70,7 @@ namespace ScheduleApp.view
             parent.application.classrooms.Add(Classroom);
             parent.application.writeData();
             e.Handled = true;
-            Close();
+            //Close();
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)

@@ -20,7 +20,7 @@ namespace ScheduleApp.view
     /// <summary>
     /// Interaction logic for SoftwareForm.xaml
     /// </summary>
-    public partial class SoftwareForm : Window
+    public partial class SoftwareForm : UserControl
     {
         public ClassroomSoftware Software;
         public MainWindow parent;
@@ -71,7 +71,7 @@ namespace ScheduleApp.view
             parent.application.clasroomSoft.Add(Software);
             parent.application.writeData();
             e.Handled = true;
-            Close();
+            //Close();
         }
 
     }

@@ -59,6 +59,12 @@ namespace ScheduleApp.view
             else {
                 Term t = new Term();
                 t.Subject = (Subject)e.Data.GetData("Object");
+
+                if (t.Subject.NumRequiredTerms <= 0) {
+                    MessageBox.Show("No more required terms for this subject.");
+                    return;
+                }
+                t.Subject.NumRequiredTerms = t.Subject.NumRequiredTerms -1;
                 t.Classroom = (Classroom)e.Data.GetData("ChosenClassroom");
                 termTile = new TermTile();
                 t.Length = t.Subject.MinimalTermLength;

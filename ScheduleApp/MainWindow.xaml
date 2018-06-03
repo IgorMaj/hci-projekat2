@@ -7,7 +7,7 @@
         xmlns:view="clr-namespace:ScheduleApp.view"
         mc:Ignorable="d"
         Title="MainWindow" Height="600.092" KeyDown="Window_KeyDown" Width="850.317">
-    <Grid>
+    <Grid Name="grid">
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition Height="*"/>
@@ -19,12 +19,12 @@
             </MenuItem>
             <MenuItem Header="Tables">
             </MenuItem>
-            <MenuItem Header="Schedule">
+            <MenuItem Header="Schedule" Click="MenuItem_Click">
             </MenuItem>
             <MenuItem Header="Help">
             </MenuItem>
         </Menu>
-        <Image Source="student_center.jpg" Grid.Row="1" Width="{Binding ActualWidth, ElementName=Tb}"/>
+         <Image Name="mainImage" Source="student_center.jpg" Grid.Row="1" Width="{Binding ActualWidth, ElementName=Tb}"/>
 
     </Grid>
 </Window>

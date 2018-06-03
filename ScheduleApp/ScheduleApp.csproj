@@ -63,7 +63,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="controller\Application.cs" />
-    <Compile Include="repository\JSONUtil.cs" />
     <Compile Include="view\ClassroomForm.xaml.cs">
       <DependentUpon>ClassroomForm.xaml</DependentUpon>
     </Compile>
@@ -169,5 +168,6 @@
   <ItemGroup>
     <Resource Include="student_center.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -2,6 +2,7 @@
 using ScheduleApp.model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -13,9 +14,9 @@ namespace ScheduleApp.controller
     {
 
 
-        public List<Classroom> classrooms = new List<Classroom>();
+        public ObservableCollection<Classroom> classrooms = new ObservableCollection<Classroom>();
         public List<Term> terms = new List<Term>();
-        public List<Subject> subjects = new List<Subject>();
+        public ObservableCollection<Subject> subjects = new ObservableCollection<Subject>();
         public List<Department> departments = new List<Department>();
         public List<ClassroomSoftware> clasroomSoft = new List<ClassroomSoftware>();
         public Application() { }

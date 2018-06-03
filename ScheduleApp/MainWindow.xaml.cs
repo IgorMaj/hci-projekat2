@@ -1,5 +1,4 @@
 ﻿using ScheduleApp.model;
-using ScheduleApp.repository;
 using ScheduleApp.view;
 using System;
 using System.Collections.Generic;
@@ -26,12 +25,18 @@ namespace ScheduleApp
     {
         public controller.Application application = new controller.Application();
 
+        public UIElement currentMainElement = null;
+
         public MainWindow()
         {
             InitializeComponent();
             application = application.loadData();
             //JSONUtil.CreateDummyData("data.json");
 
+        }
+
+        public static controller.Application GetApplication() {
+            return ((MainWindow)Application.Current.MainWindow).application;
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -46,17 +51,41 @@ namespace ScheduleApp
         private void ClassroomForm_Click(object sender, RoutedEventArgs e)
         {
             ClassroomForm classroomForm = new ClassroomForm(this);
+            
+            Title = "Classroom form";
             classroomForm.Activate();
             classroomForm.Focus();
             classroomForm.ShowDialog();
+            //ChangeElement(ClassroomForm);
         }
 
         private void SoftwareForm_Click(object sender, RoutedEventArgs e)
         {
             SoftwareForm softwareForm = new SoftwareForm(this);
-            softwareForm.Activate();
-            softwareForm.Focus();
-            softwareForm.ShowDialog();
+            Title = "Software form";
+            //softwareForm.Activate();
+            //softwareForm.Focus();
+            //softwareForm.ShowDialog();
+            ChangeElement(softwareForm);
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            MainScheduleView scheduleView = new MainScheduleView();
+            Title = "Schedule view";
+            ChangeElement(scheduleView);
+            
+            
+        }
+
+        private void ChangeElement(UIElement element) {
+            mainImage.Visibility = Visibility.Collapsed;
+            if (currentMainElement != null) {
+              grid.Children.Remove(currentMainElement);
+            }
+            Grid.SetRow(element, 1);
+            grid.Children.Add(element);
+            currentMainElement = element;
         }
     }
 }

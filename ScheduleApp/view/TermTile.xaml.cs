@@ -1,5 +1,4 @@
 ﻿using ScheduleApp.model;
-using ScheduleApp.repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -99,7 +98,7 @@ namespace ScheduleApp.view
             if (!Term.Classroom.Terms.Contains(Term)) {
                 Term.Classroom.Terms.Add(Term);
             }
-            JSONUtil.Save();
+            MainWindow.GetApplication().writeData();
         }
 
         

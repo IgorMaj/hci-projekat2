@@ -18,13 +18,8 @@
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Margin="5">
-            <TextBox Name="pathTextBox" IsReadOnly="true" Width="100" Height="30"></TextBox>
-            <Button Name="browseButton" Content="Browse..." Click="browseButton_Click"></Button>
-            <Button Name="loadButton" Content="Load data" Click="loadButton_Click"></Button>
-
-            <ComboBox Margin="50,0,10,0" Name="classroomPick" SelectedIndex="0" ItemsSource="{Binding Path=Classrooms}" DisplayMemberPath="Label"></ComboBox>
-            <Button Name="classroomPickButton" Content="Display terms" Click="classroomPickButton_Click"></Button>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <ComboBox Margin="50,0,10,0" Name="classroomPick" SelectedIndex="0" SelectionChanged="classroomPick_SelectionChanged" ItemsSource="{Binding Path=Classrooms}" DisplayMemberPath="Label"></ComboBox>
         </StackPanel>
         <local:WeekDayView  x:Name="weekDayView" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Stretch"></local:WeekDayView>
             <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">

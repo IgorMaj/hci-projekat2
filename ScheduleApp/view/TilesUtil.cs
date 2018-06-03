@@ -1,4 +1,4 @@
-﻿using ScheduleApp.repository;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,8 +46,9 @@ namespace ScheduleApp.view
                     int rowspan = Grid.GetRowSpan(TermTile.LastSelectedTermTile);
                     ClearTermArea(grid, row, column, rowspan);
                     var term = TermTile.LastSelectedTermTile.Term;
+                    term.Subject.NumRequiredTerms = term.Subject.NumRequiredTerms + 1;
                     term.Classroom.Terms.Remove(term);
-                    JSONUtil.Save();
+                    MainWindow.GetApplication().writeData();
                     grid.Children.Remove(TermTile.LastSelectedTermTile);
                     TermTile.LastSelectedTermTile = null;
                 }

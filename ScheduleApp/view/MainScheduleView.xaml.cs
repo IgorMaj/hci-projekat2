@@ -1,5 +1,4 @@
 ﻿using ScheduleApp.model;
-using ScheduleApp.repository;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -36,42 +35,14 @@ namespace ScheduleApp.view
         {
             InitializeComponent();
             DataContext = this;
-            classroomPickButton.IsEnabled = false;
-           
-        }
-
-        
-
-        private void browseButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Create OpenFileDialog 
-            System.Windows.Forms.OpenFileDialog dlg = new System.Windows.Forms.OpenFileDialog();
-            dlg.DefaultExt = "";
-            dlg.Filter = "JSON Files (*.json)|*.json";
-            if (dlg.ShowDialog().Equals(System.Windows.Forms.DialogResult.OK)) {
-                string filename = dlg.FileName;
-                pathTextBox.Text = filename;
-                JSONUtil.Path = filename;
-            }
-                
-           
-            
-        }
-
-        private void loadButton_Click(object sender, RoutedEventArgs e)
-        {
-            var container = JSONUtil.LoadContainer(pathTextBox.Text);
-            Classrooms = container.Classrooms;
-            AvailableSubjects = container.AvailableSubjects;
+            var container = MainWindow.GetApplication();
+            Classrooms = container.classrooms;
+            AvailableSubjects = container.subjects;
             classroomPick.ItemsSource = Classrooms;
             SubjectsView.ItemsSource = AvailableSubjects;
-            classroomPickButton.IsEnabled = true;
-
-        }
-
-        private void classroomPickButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (classroomPick.SelectedItem != null) {
+            SubjectsView.DataContext = AvailableSubjects;
+            if (classroomPick.SelectedItem != null)
+            {
                 termsView.ChosenClassroom = (Classroom)classroomPick.SelectedItem;
             }
         }
@@ -92,6 +63,12 @@ namespace ScheduleApp.view
             }
         }
 
-        
+        private void classroomPick_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (classroomPick.SelectedItem != null)
+            {
+                termsView.ChosenClassroom = (Classroom)classroomPick.SelectedItem;
+            }
+        }
     }
 }
