@@ -67,7 +67,7 @@ namespace ScheduleApp.view
             ChosenClassroom = new Classroom() { Terms = new List<Term>() };
             DataContext = ChosenClassroom;
             DrawGrid();
-            //FillGridWithTerms();
+            
         }
 
 

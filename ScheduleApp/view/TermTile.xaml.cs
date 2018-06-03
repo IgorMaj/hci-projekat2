@@ -28,7 +28,7 @@ namespace ScheduleApp.view
             InitializeComponent();
             DataContext = this;
             TileText = "Subject";
-            TileColor = "White";
+            TileColor = "Yellow";
             TileStrokeColor = "White";
             StrokeThickness = 5;
             TextFontSize = 20;
@@ -96,6 +96,9 @@ namespace ScheduleApp.view
                 i++;
             }
             Term.Time = time;
+            if (!Term.Classroom.Terms.Contains(Term)) {
+                Term.Classroom.Terms.Add(Term);
+            }
             JSONUtil.Save();
         }
 

@@ -26,5 +26,11 @@ namespace ScheduleApp.model
         public ClassroomOS OSRequired { get; set; }
         public virtual List<ClassroomSoftware> SoftwareRequired { get; set; }
 
+
+        public override string ToString()
+        {
+            return "Label: "+Label+"\nName:"+Name+"\nMinimal term length: "+MinimalTermLength+"\nNumber of required terms: "+NumRequiredTerms+"\n";
+        }
+
     }
 }

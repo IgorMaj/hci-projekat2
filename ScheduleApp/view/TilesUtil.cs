@@ -45,9 +45,10 @@ namespace ScheduleApp.view
                     int column = Grid.GetColumn(TermTile.LastSelectedTermTile);
                     int rowspan = Grid.GetRowSpan(TermTile.LastSelectedTermTile);
                     ClearTermArea(grid, row, column, rowspan);
-                    JSONUtil.DeleteTermFromCLassroomAndSave(TermTile.LastSelectedTermTile.Term);
+                    var term = TermTile.LastSelectedTermTile.Term;
+                    term.Classroom.Terms.Remove(term);
+                    JSONUtil.Save();
                     grid.Children.Remove(TermTile.LastSelectedTermTile);
-                
                     TermTile.LastSelectedTermTile = null;
                 }
                 

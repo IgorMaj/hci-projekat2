@@ -120,10 +120,7 @@ namespace ScheduleApp.repository
             sw.Close();
         }
 
-        public static void DeleteTermFromCLassroomAndSave(Term t) {
-           //TODO delete
-            Save();
-        }
+        
 
 
 

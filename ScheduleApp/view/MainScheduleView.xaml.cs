@@ -23,8 +23,14 @@ namespace ScheduleApp.view
     /// </summary>
     public partial class MainScheduleView : UserControl
     {
+        private ObservableCollection<Subject> availableSubjects;
         public ObservableCollection<Classroom> Classrooms { get; set; }
-        public ObservableCollection<Subject> AvailableSubjects { get; set; }
+        public ObservableCollection<Subject> AvailableSubjects { get { return availableSubjects; }
+            set {
+                availableSubjects = value;
+                
+            }
+        }
 
         public MainScheduleView()
         {
@@ -56,7 +62,9 @@ namespace ScheduleApp.view
         {
             var container = JSONUtil.LoadContainer(pathTextBox.Text);
             Classrooms = container.Classrooms;
+            AvailableSubjects = container.AvailableSubjects;
             classroomPick.ItemsSource = Classrooms;
+            SubjectsView.ItemsSource = AvailableSubjects;
             classroomPickButton.IsEnabled = true;
 
         }
@@ -65,6 +73,22 @@ namespace ScheduleApp.view
         {
             if (classroomPick.SelectedItem != null) {
                 termsView.ChosenClassroom = (Classroom)classroomPick.SelectedItem;
+            }
+        }
+
+        private void SubjectsView_MouseMove(object sender, MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                // Package the data.
+                var subject = (Subject)((ListView)sender).SelectedItem;
+                DataObject data = new DataObject();
+                data.SetData("Object", subject);
+                data.SetData("ChosenClassroom",termsView.ChosenClassroom);
+
+                // Inititate the drag-and-drop operation.
+                DragDrop.DoDragDrop(this, data, DragDropEffects.Move);
             }
         }
 
