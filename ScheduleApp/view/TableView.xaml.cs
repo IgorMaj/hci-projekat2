@@ -40,7 +40,7 @@ namespace ScheduleApp.view
             
             options["Classrooms"] = application.classrooms;
             options["Departments"] = application.departments;
-            options["Classroom software"] = application.clasroomSoft;
+            options["Classroom software"] = application.classroomSoft;
             options["Subjects"] = application.subjects;
         }
 

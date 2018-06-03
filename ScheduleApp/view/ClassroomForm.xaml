@@ -6,7 +6,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:ScheduleApp.view"
         mc:Ignorable="d"
-         >
+        Height="327.175" Width="744.435">
     <UserControl.Resources>
         <Style TargetType="{x:Type Label}">
             <Setter Property="Margin" Value="5,0,5,0" />
