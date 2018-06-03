@@ -18,7 +18,7 @@
             <ComboBoxItem Content="Classroom software"/>
             <ComboBoxItem Content="Subjects"/>
         </ComboBox>
-        <DataGrid Grid.Row="1" Name="dataGrid" IsReadOnly="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <DataGrid Grid.Row="1" Name="dataGrid" AutoGeneratingColumn="dataGrid_AutoGeneratingColumn" IsReadOnly="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         </DataGrid>
     </Grid>
 </UserControl>

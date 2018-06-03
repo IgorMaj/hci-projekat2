@@ -14,6 +14,11 @@ namespace ScheduleApp.model
         public DateTime DateOfIntroduction { get; set; }
         public string Description { get; set; }
 
+        public override string ToString()
+        {
+            return Label;
+        }
+
 
         #region IDataErrorInfo Members
 
