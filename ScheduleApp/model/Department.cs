@@ -1,9 +1,10 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace ScheduleApp.model
 {
     //smer 
-    public class Department
+    public class Department : IDataErrorInfo
     {
 
         
@@ -12,5 +13,40 @@ namespace ScheduleApp.model
 
         public DateTime DateOfIntroduction { get; set; }
         public string Description { get; set; }
+
+
+        #region IDataErrorInfo Members
+
+        public string Error
+        {
+            get { return ""; }
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                string result = null;
+                if (columnName == "Label")
+                {
+                    if (string.IsNullOrEmpty(Label))
+                        result = "Please enter a Label";
+                }
+                if (columnName == "Description")
+                {
+                    if (string.IsNullOrEmpty(Description))
+                        result = "Please enter a Description";
+                }
+                if (columnName == "Name")
+                {
+
+                    if (string.IsNullOrEmpty(Name))
+                        result = "Please enter a name of department";
+                }
+                return result;
+            }
+        }
+
+        #endregion
     }
 }

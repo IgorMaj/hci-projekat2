@@ -52,11 +52,11 @@ namespace ScheduleApp
         {
             ClassroomForm classroomForm = new ClassroomForm(this);
             
-            Title = "Classroom form";
-            classroomForm.Activate();
-            classroomForm.Focus();
-            classroomForm.ShowDialog();
-            //ChangeElement(ClassroomForm);
+            //Title = "Classroom form";
+            //classroomForm.Activate();
+            //classroomForm.Focus();
+           // classroomForm.ShowDialog();
+            ChangeElement(classroomForm);
         }
 
         private void SoftwareForm_Click(object sender, RoutedEventArgs e)
@@ -86,6 +86,15 @@ namespace ScheduleApp
             Grid.SetRow(element, 1);
             grid.Children.Add(element);
             currentMainElement = element;
+        }
+
+        private void DepartmentForm_Click(object sender, RoutedEventArgs e)
+        {
+            DepartmentForm departmentForm = new DepartmentForm(this);
+            //departmentForm.Activate();
+            //departmentForm.Focus();
+            //departmentForm.ShowDialog();
+            ChangeElement(departmentForm);
         }
     }
 }

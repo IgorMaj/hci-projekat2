@@ -14,8 +14,10 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0">
             <MenuItem Header="New">
+                <MenuItem Name="DepartmenForm" Header="Department" Click="DepartmentForm_Click"/>
                 <MenuItem Name="ClassroomForm" Header="Classroom" Click="ClassroomForm_Click"/>
                 <MenuItem Name="SoftwareForm" Header="Software" Click="SoftwareForm_Click"/>
+         
             </MenuItem>
             <MenuItem Header="Tables">
             </MenuItem>

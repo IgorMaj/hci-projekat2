@@ -20,7 +20,7 @@ namespace ScheduleApp.view
     /// <summary>
     /// Interaction logic for ClassroomForm.xaml
     /// </summary>
-    public partial class ClassroomForm : Window
+    public partial class ClassroomForm : UserControl
     {
         public Classroom Classroom;
         public MainWindow parent;
