@@ -91,7 +91,7 @@
 
 
         <Button Name="Edit" Content="Edit" Grid.Column="1"  Grid.Row="6" Click="Edit_Click"/>
-        <Button Name="Cancel" Content="Cancel" Grid.Column="2" Grid.Row="7" IsCancel="True"/>
+        <Button Name="Cancel" Content="Cancel" Grid.Column="2" Grid.Row="7" Click="Cancel_Click"/>
         <Button Name="Save" Content="Save" Grid.Column="3" Grid.Row="7" Command="New"/>
     </Grid>
 </UserControl>

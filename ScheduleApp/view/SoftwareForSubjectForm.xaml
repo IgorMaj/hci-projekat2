@@ -1,0 +1,41 @@
+﻿<Window x:Class="ScheduleApp.view.SoftwareForSubjectForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScheduleApp.view"
+        mc:Ignorable="d"
+        Title="SoftwareForSubjectForm"  Height="450" Width="1087.012">
+    <Grid>
+        <DataGrid Name="dg_all" DataContext="{Binding Source=parent.Subject.SoftwareRequired}" IsReadOnly="True"  HorizontalAlignment="Left" Height="324" Margin="10,31,0,0" VerticalAlignment="Top" Width="520">
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="Label" Binding="{Binding Path=Label}" MinWidth="50" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}" MinWidth="50" />
+                <DataGridTextColumn Header="OS" Binding="{Binding Path=OS}" MinWidth="50" />
+                <DataGridTextColumn Header="Vendor" Binding="{Binding Path=Vendor}" MinWidth="50" />
+                <DataGridTextColumn Header="Site" Binding="{Binding Path=Site}" MinWidth="50" />
+                <DataGridTextColumn Header="Year of publication" Binding="{Binding Path=YearOfPublication}" MinWidth="50" />
+                <DataGridTextColumn Header="Price" Binding="{Binding Path=Price}" MinWidth="50" />
+                <DataGridTextColumn Header="Description" Binding="{Binding Path=Description}" MinWidth="50" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Name="dg_subject" DataContext="{Binding Source=parent.parent.application.clasroomSoft}" IsReadOnly="True"  HorizontalAlignment="Left" Height="324" Margin="553,31,-15.6,0" VerticalAlignment="Top" Width="517">
+            <DataGrid.Columns >
+                <DataGridTextColumn Header="Label" Binding="{Binding Path=Label}" MinWidth="50" />
+                <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}" MinWidth="50" />
+                <DataGridTextColumn Header="OS" Binding="{Binding Path=OS}" MinWidth="50" />
+                <DataGridTextColumn Header="Vendor" Binding="{Binding Path=Vendor}" MinWidth="50" />
+                <DataGridTextColumn Header="Site" Binding="{Binding Path=Site}" MinWidth="50" />
+                <DataGridTextColumn Header="Year of publication" Binding="{Binding Path=YearOfPublication}" MinWidth="50" />
+                <DataGridTextColumn Header="Price" Binding="{Binding Path=Price}" MinWidth="50" />
+                <DataGridTextColumn Header="Description" Binding="{Binding Path=Description}" MinWidth="50" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Name="Add" Content="Add" Margin="177,377,772.8,0" VerticalAlignment="Top" Height="33" Click="Add_Click"/>
+        <Button Name="Remove" Content="Remove" HorizontalAlignment="Left" Margin="740,377,0,0" VerticalAlignment="Top" Width="131" Height="33" Click="Remove_Click"/>
+        <Label Content="Available" HorizontalAlignment="Left" Margin="214,5,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.985,0.191"/>
+        <Label Content="Selected" HorizontalAlignment="Left" Margin="784,10,0,0" VerticalAlignment="Top"/>
+        <Button Name="Save" Content="OK" HorizontalAlignment="Left" Margin="480,377,0,0" VerticalAlignment="Top" Width="116" Height="33" Click="Save_Click"/>
+
+    </Grid>
+</Window>

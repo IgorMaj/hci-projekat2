@@ -87,6 +87,6 @@
         <TextBox Name="in_description" TextWrapping="Wrap" Grid.Column="1" Grid.Row="3"   Height="70"/>
         <Button Content="Save" Grid.Column="3" Grid.Row="7" Command="New"/>
 
-        <Button Content="Cancel" Grid.Column="2" Grid.Row="7" IsCancel="True"/>
+        <Button Name="Cancel" Content="Cancel" Grid.Column="2" Grid.Row="7" Click="Cancel_Click"/>
     </Grid>
 </UserControl>

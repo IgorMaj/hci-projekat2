@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace ScheduleApp.model
 {
     //Predmet
-    public class Subject : INotifyPropertyChanged
+    public class Subject: INotifyPropertyChanged, IDataErrorInfo
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -49,6 +49,52 @@ namespace ScheduleApp.model
         {
             return "Label: "+Label+"\nName:"+Name+"\nMinimal term length: "+MinimalTermLength+"\nNumber of required terms: "+NumRequiredTerms+"\n";
         }
+        #region IDataErrorInfo Members
 
+        public string Error
+        {
+            get { return ""; }
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                string result = null;
+                if (columnName == "Label")
+                {
+                    if (string.IsNullOrEmpty(Label))
+                        result = "Please enter a label";
+                }
+                if (columnName == "Name")
+                {
+                    if (string.IsNullOrEmpty(Name))
+                        result = "Please enter a name";
+                }
+                if (columnName == "Description")
+                {
+                    if (string.IsNullOrEmpty(Description))
+                        result = "Please enter a description";
+                }
+                if (columnName == "GroupSize")
+                {
+                    if (GroupSize < 0)
+                        result = "Please enter a valid number for group size";
+                }
+                if (columnName == "MinimalTermLength")
+                {
+                    if (MinimalTermLength < 0)
+                        result = "Please enter a valid number for minimal term length";
+                }
+                if (columnName == "NumRequiredTerms")
+                {
+                    if (NumRequiredTerms < 0)
+                        result = "Please enter a valid number for number of required terms";
+                }
+                return result;
+            }
+        }
+
+        #endregion
     }
 }

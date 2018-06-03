@@ -51,11 +51,7 @@ namespace ScheduleApp
         private void ClassroomForm_Click(object sender, RoutedEventArgs e)
         {
             ClassroomForm classroomForm = new ClassroomForm(this);
-            
-            //Title = "Classroom form";
-            //classroomForm.Activate();
-            //classroomForm.Focus();
-           // classroomForm.ShowDialog();
+            Title = "Classroom form";
             ChangeElement(classroomForm);
         }
 
@@ -63,9 +59,6 @@ namespace ScheduleApp
         {
             SoftwareForm softwareForm = new SoftwareForm(this);
             Title = "Software form";
-            //softwareForm.Activate();
-            //softwareForm.Focus();
-            //softwareForm.ShowDialog();
             ChangeElement(softwareForm);
         }
 
@@ -88,13 +81,34 @@ namespace ScheduleApp
             currentMainElement = element;
         }
 
+        public void returnOriginal()
+        {
+            mainImage.Visibility = Visibility.Visible;
+            if (currentMainElement != null)
+            {
+                grid.Children.Remove(currentMainElement);
+            }
+        }
+
         private void DepartmentForm_Click(object sender, RoutedEventArgs e)
         {
             DepartmentForm departmentForm = new DepartmentForm(this);
-            //departmentForm.Activate();
-            //departmentForm.Focus();
-            //departmentForm.ShowDialog();
+            Title = "Department view";
             ChangeElement(departmentForm);
+        }
+
+        private void SubjectForm_Click(object sender, RoutedEventArgs e)
+        {
+            if (application.departments.Count > 0)
+            {
+                SubjectForm subjectForm = new SubjectForm(this);
+                Title = "Subject view";
+                ChangeElement(subjectForm);
+            }
+            else
+            {
+                MessageBoxResult result = MessageBox.Show("Can't create subjects beacause you don't have any departments.", "Information", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
     }
 }

@@ -70,7 +70,7 @@ namespace ScheduleApp.view
             parent.application.classrooms.Add(Classroom);
             parent.application.writeData();
             e.Handled = true;
-            //Close();
+            Clear();
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)
@@ -79,6 +79,27 @@ namespace ScheduleApp.view
             sofForClass.Activate();
             sofForClass.Focus();
             sofForClass.ShowDialog();
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            parent.returnOriginal();
+        }
+
+        private void Clear()
+        {
+            Classroom = new Classroom();
+            Classroom.InstalledSoftware = new List<ClassroomSoftware>();
+            OsCb.ItemsSource = Enum.GetValues(typeof(ClassroomOS)).Cast<ClassroomOS>();
+            OsCb.SelectedIndex = 0;
+            grid.DataContext = Classroom;
+
+            in_label.Text = "";
+            in_description.Text = "";
+            in_employees.Text = "0";
+            check_projector.IsChecked = false;
+            check_table.IsChecked = false;
+            check_smart.IsChecked = false;
         }
     }
 }

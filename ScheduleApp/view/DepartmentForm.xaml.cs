@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ScheduleApp.model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace ScheduleApp.view
     /// </summary>
     public partial class DepartmentForm : UserControl
     {
-        public model.Department department;
+        public Department department;
         public MainWindow parent;
         private int _noOfErrorsOnScreen = 0;
         public DepartmentForm(MainWindow parent)
@@ -31,7 +32,7 @@ namespace ScheduleApp.view
             InitializeComponent();
 
 
-            department = new model.Department();
+            department = new Department();
             grid.DataContext = department;
 
         }
@@ -59,10 +60,25 @@ namespace ScheduleApp.view
             department.DateOfIntroduction = dt;
             parent.application.departments.Add(department);
             parent.application.writeData();
-          
             e.Handled = true;
-            //Close();
+            Clear();
+        }
+        
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            parent.returnOriginal();
         }
 
+        private void Clear()
+        {
+            department = new Department();
+            grid.DataContext = department;
+
+            in_label.Text = "";
+            in_description.Text = "";
+            in_name.Text = "";
+            in_date.Text = "";
+        }
     }
 }

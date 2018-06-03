@@ -71,8 +71,27 @@ namespace ScheduleApp.view
             parent.application.clasroomSoft.Add(Software);
             parent.application.writeData();
             e.Handled = true;
-            //Close();
+            Clear();
         }
 
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            parent.returnOriginal();
+        }
+        private void Clear()
+        {
+            Software = new ClassroomSoftware();
+            OsCb.ItemsSource = Enum.GetValues(typeof(ClassroomOS)).Cast<ClassroomOS>();
+            OsCb.SelectedIndex = 0;
+            grid.DataContext = Software;
+
+            in_label.Text = "";
+            in_description.Text = "";
+            in_name.Text = "";
+            in_price.Text = "0";
+            in_site.Text = "";
+            in_vendor.Text = "";
+            in_date.Text = "";
+        }
     }
 }
