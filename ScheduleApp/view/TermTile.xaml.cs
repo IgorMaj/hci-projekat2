@@ -88,7 +88,7 @@ namespace ScheduleApp.view
             int row = Grid.GetRow(this);
             int column = Grid.GetColumn(this);
             Term.Day = (WEEKDAY)(column-1);
-            int i = 0;
+            int i = 1;
             TimeSpan time = new TimeSpan(7, 0, 0);
             while (i < row) {
                 time = time.Add(new TimeSpan(0,15,0));
