@@ -183,7 +183,7 @@ namespace ScheduleApp.view
 
         private Tuple<int, int> CalculatePosition(Term t)
         {
-            int timeCounter = 0;
+            int timeCounter = 1;
             TimeSpan startTime = startSpan;
             
             while (TimeSpan.Compare(startTime, t.Time) != 0) {
