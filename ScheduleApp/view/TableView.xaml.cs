@@ -41,10 +41,10 @@ namespace ScheduleApp.view
 
         private void initOptions() {
             
-            options["Classrooms"] = application.classrooms;
-            options["Departments"] = application.departments;
-            options["Classroom software"] = application.classroomSoft;
-            options["Subjects"] = application.subjects;
+            options["Ucionice"] = application.classrooms;
+            options["Smerovi"] = application.departments;
+            options["Softver"] = application.classroomSoft;
+            options["Predmeti"] = application.subjects;
             disallowedColumnNames.Add("Error");
             disallowedColumnNames.Add("Terms");
             disallowedColumnNames.Add("InstalledSoftware");
@@ -77,7 +77,7 @@ namespace ScheduleApp.view
 
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
-            if(MessageBox.Show("Are you sure you want to delete the selected entity? Any depending entities will also be deleted.", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes){
+            if(MessageBox.Show("Ovaj entitet ce biti obrisan. Takodje ce biti obrisani svi oni koji su povezani s njim.", "Pitanje", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes){
                 var selectedItem = dataGrid.SelectedItem;
                 application.RemoveCompletely(selectedItem);
             }
@@ -91,7 +91,7 @@ namespace ScheduleApp.view
             string arg = ((ComboBoxItem)selectCollection.SelectedItem).Content.ToString();
             switch (arg)
             {
-                case "Classrooms":
+                case "Ucionice":
                     {
                         Classroom classroom = (Classroom)dataGrid.SelectedItem;
                         if (classroom != null)
@@ -106,7 +106,7 @@ namespace ScheduleApp.view
                         }
                     }
                     break;
-                case "Departments":
+                case "Smerovi":
                     Department department = (Department)dataGrid.SelectedItem;
                     if (department != null)
                     {
@@ -119,7 +119,7 @@ namespace ScheduleApp.view
                         MessageBoxResult result = MessageBox.Show("You must select department to edit first.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     break;
-                case "Classroom software":
+                case "Softver":
                     ClassroomSoftware classroomSoftware = (ClassroomSoftware)dataGrid.SelectedItem;
                     if (classroomSoftware != null)
                     {
@@ -132,7 +132,7 @@ namespace ScheduleApp.view
                         MessageBoxResult result = MessageBox.Show("You must select software to edit first.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     break;
-                case "Subjects":
+                case "Predmeti":
                     Subject subject = (Subject)dataGrid.SelectedItem;
                     if (subject != null)
                     {

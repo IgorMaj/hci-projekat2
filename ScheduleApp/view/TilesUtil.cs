@@ -34,7 +34,7 @@ namespace ScheduleApp.view
         public static void DeleteSelectedTile() {
             if (TermTile.LastSelectedTermTile != null)
             {
-                if (MessageBox.Show("Are you sure you want to delete the selected tile?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+                if (MessageBox.Show("Da li ste sigurni da zelite da izbrisete selektovani termin?", "Pitanje", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
                 {
                     return;
                 }

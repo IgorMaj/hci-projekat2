@@ -19,7 +19,7 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Content="Classroom:"></Label>
+                <Label Content="Ucionica:"></Label>
                 <ComboBox Margin="50,0,10,0" Name="classroomPick" SelectedIndex="0" SelectionChanged="classroomPick_SelectionChanged" ItemsSource="{Binding Path=Classrooms}" DisplayMemberPath="Label"></ComboBox>
         </StackPanel>
         

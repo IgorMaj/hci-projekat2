@@ -15,16 +15,22 @@ namespace ScheduleApp.model
         public Subject() { }
 
         private int numRequiredTerms;
- 
+
+        [DisplayName("Oznaka")]
         public string Label { get; set; }
+        [DisplayName("Naziv")]
         public string Name { get; set; }
+        [DisplayName("Smer")]
         public Department Department { get; set; }
+        [DisplayName("Opis")]
         public string Description { get; set; }
+        [DisplayName("Velicina grupe")]
         public int GroupSize { get; set; }
+        [DisplayName("Minimalna duzina")]
         public int MinimalTermLength { get; set; } //u jedinicama od po 45 minuta
 
 
-
+        [DisplayName("Broj obaveznih termina")]
         public int NumRequiredTerms {
             get { return numRequiredTerms; }
            set {
@@ -32,9 +38,13 @@ namespace ScheduleApp.model
                 OnPropertyChanged("numRequiredTerms");
             } }
 
+        [DisplayName("Projektor")]
         public bool ProjectorRequired { get; set; }
+        [DisplayName("Tabla")]
         public bool TableRequired { get; set; }
+        [DisplayName("Pametna tabla")]
         public bool SmartTableRequired { get; set; }
+        [DisplayName("Operativni sistem")]
         public ClassroomOS OSRequired { get; set; }
         public virtual List<ClassroomSoftware> SoftwareRequired { get; set; }
 
@@ -70,7 +80,7 @@ namespace ScheduleApp.model
 
         public override string ToString()
         {
-            return "Label: "+Label+"\nName:"+Name+"\nMinimal term length(in mins): "+MinimalTermLength*45+"\nNumber of required terms: "+NumRequiredTerms+"\n";
+            return "Oznaka: "+Label+"\nNaziv:"+Name+"\nMinimalna duzina(u min): "+MinimalTermLength*45+"\nBroj obaveznih termina: "+NumRequiredTerms+"\n";
         }
         #region IDataErrorInfo Members
 

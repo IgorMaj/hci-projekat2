@@ -19,15 +19,15 @@
         </Grid.RowDefinitions>
         <ComboBox Grid.Row="0" Name="selectCollection" SelectionChanged="dataGrid_SelectionChanged" Grid.ColumnSpan="3" Margin="0,0,0,0.4">
 
-            <ComboBoxItem Content="Classrooms"/>
-            <ComboBoxItem Content="Departments"/>
-            <ComboBoxItem Content="Classroom software"/>
-            <ComboBoxItem Content="Subjects"/>
+            <ComboBoxItem Content="Ucionice"/>
+            <ComboBoxItem Content="Smerovi"/>
+            <ComboBoxItem Content="Softver"/>
+            <ComboBoxItem Content="Predmeti"/>
         </ComboBox>
         <DataGrid Name="dataGrid" AutoGeneratingColumn="dataGrid_AutoGeneratingColumn" IsReadOnly="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Margin="0,30,0,0" Grid.RowSpan="2"/>
         <StackPanel HorizontalAlignment="Center"  Grid.Row="2" Orientation="Horizontal">
-            <Button Name="Edit" Content="Edit" Click="Edit_Click" Width="80"/>
-            <Button Name="deleteButton" Content="Delete" Click="deleteButton_Click"  Width="80">
+            <Button Name="Edit" Content="Izmeni" Click="Edit_Click" Width="80"/>
+            <Button Name="deleteButton" Content="Obrisi" Click="deleteButton_Click"  Width="80">
             </Button>
         </StackPanel>
     </Grid>

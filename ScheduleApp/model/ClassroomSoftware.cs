@@ -9,14 +9,22 @@ namespace ScheduleApp.model
     {
 
         public ClassroomSoftware() { }
-        
+
+        [DisplayName("Oznaka")]
         public string Label { get; set; }
+        [DisplayName("Naziv")]
         public string Name { get; set; }
+        [DisplayName("Operativni sistem")]
         public ClassroomOS OS { get; set; }
+        [DisplayName("Proizvodjac")]
         public string Vendor { get; set; }
+        [DisplayName("Sajt")]
         public string Site { get; set; }
+        [DisplayName("Godina izdanja")]
         public DateTime YearOfPublication { get; set; }
+        [DisplayName("Cena")]
         public double Price { get; set; }
+        [DisplayName("Opis")]
         public string Description { get; set; }
 
         #region IDataErrorInfo Members

@@ -7,11 +7,13 @@ namespace ScheduleApp.model
     public class Department : IDataErrorInfo
     {
 
-        
+        [DisplayName("Oznaka")]
         public string Label { get; set; }
+        [DisplayName("Naziv")]
         public string Name { get; set; }
-
+        [DisplayName("Datum osnivanja")]
         public DateTime DateOfIntroduction { get; set; }
+        [DisplayName("Opis")]
         public string Description { get; set; }
 
         public override string ToString()

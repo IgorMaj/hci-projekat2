@@ -31,8 +31,8 @@ namespace ScheduleApp.view
         private TimeSpan incrementSpan = new TimeSpan(0, 15, 0);
         private TimeSpan endSpan = new TimeSpan(22,0,0);
 
-        private List<string> days = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
-        private Tile firstTile = new Tile() { TileText = "Days:" };
+        private List<string> days = new List<string>() { "Pon", "Uto", "Sre", "Cet", "Pet", "Sub" };
+        private Tile firstTile = new Tile() { TileText = "Dani:" };
 
         private Classroom chosenClassroom;
         

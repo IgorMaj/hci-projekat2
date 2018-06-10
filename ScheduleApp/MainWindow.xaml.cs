@@ -68,7 +68,7 @@ namespace ScheduleApp
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             MainScheduleView scheduleView = new MainScheduleView();
-            Title = "Schedule view";
+            Title = "Prikaz rasporeda";
             ChangeElement(scheduleView);
             
             
@@ -87,7 +87,7 @@ namespace ScheduleApp
         private void Tables_Click_1(object sender, RoutedEventArgs e)
         {
             TableView scheduleView = new TableView(this);
-            Title = "Table view";
+            Title = "Tabelarni prikaz";
             ChangeElement(scheduleView);
         }
 

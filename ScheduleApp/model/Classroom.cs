@@ -15,12 +15,19 @@ namespace ScheduleApp.model
         public Classroom() {
             Terms = new List<Term>();
         }
+        [DisplayName("Oznaka")]
         public string Label { get; set; }
+        [DisplayName("Opis")]
         public string Description { get; set; }
+        [DisplayName("Broj zaposlenih")]
         public int NumOfEmployees { get; set; }
+        [DisplayName("Projektor")]
         public bool HasProjector { get; set; }
+        [DisplayName("Tabla")]
         public bool HasTable { get; set; }
+        [DisplayName("Pametna tabla")]
         public bool HasSmartTable { get; set; }
+        [DisplayName("Operativni sistem")]
         public ClassroomOS OS { get; set; }
         public virtual List<ClassroomSoftware> InstalledSoftware { get; set; }
         public virtual List<Term> Terms { get; set; }
