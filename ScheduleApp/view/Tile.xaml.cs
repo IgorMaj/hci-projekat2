@@ -107,6 +107,8 @@ namespace ScheduleApp.view
             //na osnovu pozicije plocice cemo da provalimo novi termin
             termTile.UpdateTerm();
 
+            controller.CustomEvents.RaiseTutorialStepCompletedEvent(Steps.DRAG_AND_DROP_DONE);
+
         }
 
         public void HandleOldTermTile(TermTile termTile,TermTile oldTermTile,Grid grid) {

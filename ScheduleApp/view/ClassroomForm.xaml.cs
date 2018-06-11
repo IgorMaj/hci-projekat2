@@ -110,6 +110,7 @@ namespace ScheduleApp.view
             }
             parent.application.writeData();
             e.Handled = true;
+            controller.CustomEvents.RaiseTutorialStepCompletedEvent(Steps.CLASSROOM_ADDED);
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)

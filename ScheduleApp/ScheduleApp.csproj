@@ -64,6 +64,9 @@
     </ApplicationDefinition>
     <Compile Include="controller\Application.cs" />
     <Compile Include="controller\Commands.cs" />
+    <Compile Include="controller\CustomEvents.cs" />
+    <Compile Include="model\Tutorial.cs" />
+    <Compile Include="model\TutorialStep.cs" />
     <Compile Include="view\ClassroomForm.xaml.cs">
       <DependentUpon>ClassroomForm.xaml</DependentUpon>
     </Compile>
@@ -98,6 +101,9 @@
       <DependentUpon>Tile.xaml</DependentUpon>
     </Compile>
     <Compile Include="view\TilesUtil.cs" />
+    <Compile Include="view\TutorialView.xaml.cs">
+      <DependentUpon>TutorialView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -151,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="view\Tile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="view\TutorialView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

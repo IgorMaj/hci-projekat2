@@ -135,6 +135,7 @@ namespace ScheduleApp.view
                 parent.application.subjects.Add(Subject);
                 Clear();
                 MessageBoxResult result = MessageBox.Show("Successfully added subject.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                controller.CustomEvents.RaiseTutorialStepCompletedEvent(Steps.SUBJECT_ADDED);
             }
             else
             {

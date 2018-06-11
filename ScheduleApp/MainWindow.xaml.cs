@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -24,13 +25,17 @@ namespace ScheduleApp
     public partial class MainWindow : Window
     {
         public controller.Application application = new controller.Application();
+        public Tutorial tutorial = new Tutorial();
 
         public UIElement currentMainElement = null;
+
+        
 
         public MainWindow()
         {
             InitializeComponent();
             application = application.loadData();
+            tutorial.setup();
             //JSONUtil.CreateDummyData("data.json");
 
         }
@@ -45,6 +50,7 @@ namespace ScheduleApp
             ClassroomForm classroomForm = new ClassroomForm(this);
             Title = "Classroom form";
             ChangeElement(classroomForm);
+            controller.CustomEvents.RaiseTutorialStepCompletedEvent(Steps.CLASSROOM_FORM_ENTERED);
         }
 
         private void SoftwareForm_Click(object sender, RoutedEventArgs e)
@@ -59,8 +65,9 @@ namespace ScheduleApp
             MainScheduleView scheduleView = new MainScheduleView();
             Title = "Prikaz rasporeda";
             ChangeElement(scheduleView);
-            
-            
+            controller.CustomEvents.RaiseTutorialStepCompletedEvent(Steps.SCHEDULE_ENTERED);
+
+
         }
 
         public void ChangeElement(UIElement element) {
@@ -121,6 +128,24 @@ namespace ScheduleApp
             {
                 MessageBoxResult result = MessageBox.Show("Can't create subjects beacause you don't have any departments.", "Information", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+        }
+
+        private void tutorial_Click(object sender, RoutedEventArgs e)
+        {
+            tutorial.resetTutorial();
+            Window myWin = new Window();
+            myWin.Content = new TutorialView(tutorial);
+            myWin.Height = 300;
+            myWin.Width = 600;
+            myWin.WindowStyle = WindowStyle.ToolWindow;
+            myWin.Show();
+
+            
+            
+            //TutorialView tView = new TutorialView(tutorial);
+            //tView.ShowInTaskbar = false;
+            //tView.Show();
+
         }
     }
 }

@@ -83,6 +83,7 @@ namespace ScheduleApp.view
             }
             parent.application.writeData();
             e.Handled = true;
+            controller.CustomEvents.RaiseTutorialStepCompletedEvent(Steps.DEPARTMENT_ADDED);
         }
 
 

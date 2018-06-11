@@ -20,27 +20,29 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Menu Grid.Row="0">
-            <MenuItem Header="New">
-                <MenuItem Name="DepartmenForm" Header="Department(Alt+D)" Click="DepartmentForm_Click">
+            <MenuItem Header="Novi">
+                <MenuItem Name="DepartmenForm" Header="Smer (Alt+D)" Click="DepartmentForm_Click">
                 </MenuItem>
-                <MenuItem Name="SoftwareForm" Header="Software(Alt+S)" Click="SoftwareForm_Click">
+                <MenuItem Name="SoftwareForm" Header="Softver (Alt+S)" Click="SoftwareForm_Click">
                 </MenuItem>
-                <MenuItem Name="SubjectForm" Header="Subject(Alt+P)" Click="SubjectForm_Click">
+                <MenuItem Name="SubjectForm" Header="Predmet (Alt+P)" Click="SubjectForm_Click">
                 </MenuItem>
-                <MenuItem Name="ClassroomForm" Header="Classroom(Alt+U)" Click="ClassroomForm_Click">
+                <MenuItem Name="ClassroomForm" Header="Ucionica (Alt+U)" Click="ClassroomForm_Click">
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="_Tabelarni prikaz(Alt+T)" Click="Tables_Click_1">
+            <MenuItem Header="_Tabelarni prikaz (Alt+T)" Click="Tables_Click_1">
                 <MenuItem.InputBindings>
                     <KeyBinding Key="T" Modifiers="Alt" />
                 </MenuItem.InputBindings>
             </MenuItem>
-            <MenuItem Header="_Raspored(Alt+R)" Click="MenuItem_Click">
+            <MenuItem Header="_Raspored (Alt+R)" Click="MenuItem_Click">
                 <MenuItem.InputBindings>
                     <KeyBinding Key="R" Modifiers="Alt" />
                 </MenuItem.InputBindings>
             </MenuItem>
             <MenuItem Header="Pomoc">
+            </MenuItem>
+            <MenuItem Name="tutorialMenu" Header="Tutorial" Click="tutorial_Click">
             </MenuItem>
         </Menu>
          <Image Name="mainImage" Source="student_center.jpg" Grid.Row="1" Width="{Binding ActualWidth, ElementName=Tb}"/>
