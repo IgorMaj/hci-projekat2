@@ -71,5 +71,10 @@ namespace ScheduleApp.view
                 termsView.ChosenClassroom = (Classroom)classroomPick.SelectedItem;
             }
         }
+
+        public void DeleteTerm(object sender, ExecutedRoutedEventArgs e)
+        {
+            TilesUtil.DeleteSelectedTile();
+        }
     }
 }

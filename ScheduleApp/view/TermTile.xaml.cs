@@ -120,11 +120,8 @@ namespace ScheduleApp.view
             tile.TileStrokeColor = "Red";
             var grid = ((Grid)tile.Parent);
             LastSelectedTermTile = tile;
-            
-
-            
+           
         }
 
-        
     }
 }

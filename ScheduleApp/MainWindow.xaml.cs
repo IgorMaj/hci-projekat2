@@ -39,17 +39,6 @@ namespace ScheduleApp
             return ((MainWindow)Application.Current.MainWindow).application;
         }
 
-        private void Window_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Delete)
-            {
-                if (currentMainElement is MainScheduleView) {
-                    TilesUtil.DeleteSelectedTile();
-                }
-                
-                e.Handled = true;
-            }
-        }
 
         private void ClassroomForm_Click(object sender, RoutedEventArgs e)
         {

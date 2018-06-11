@@ -4,8 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ScheduleApp.view"
+             xmlns:controller="clr-namespace:ScheduleApp.controller"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="333*"/>
@@ -24,7 +26,12 @@
             <ComboBoxItem Content="Softver"/>
             <ComboBoxItem Content="Predmeti"/>
         </ComboBox>
-        <DataGrid Name="dataGrid" AutoGeneratingColumn="dataGrid_AutoGeneratingColumn" IsReadOnly="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Margin="0,30,0,0" Grid.RowSpan="2"/>
+        <DataGrid Name="dataGrid" AutoGeneratingColumn="dataGrid_AutoGeneratingColumn" IsReadOnly="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="3" Margin="0,30,0,0" Grid.RowSpan="2">
+            <DataGrid.CommandBindings>
+                <CommandBinding Command="{x:Static controller:Commands.DeleteCommand}" Executed="deleteButton_Click"/>
+                <CommandBinding Command="{x:Static controller:Commands.TableViewEditCommand}" Executed="Edit_Click"/>
+            </DataGrid.CommandBindings>
+        </DataGrid>
         <StackPanel HorizontalAlignment="Center"  Grid.Row="2" Orientation="Horizontal">
             <Button Name="Edit" Content="Izmeni" Click="Edit_Click" Width="80"/>
             <Button Name="deleteButton" Content="Obrisi" Click="deleteButton_Click"  Width="80">

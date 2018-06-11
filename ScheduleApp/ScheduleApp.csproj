@@ -63,6 +63,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="controller\Application.cs" />
+    <Compile Include="controller\Commands.cs" />
     <Compile Include="view\ClassroomForm.xaml.cs">
       <DependentUpon>ClassroomForm.xaml</DependentUpon>
     </Compile>

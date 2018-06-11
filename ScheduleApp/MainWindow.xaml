@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ScheduleApp"
         xmlns:view="clr-namespace:ScheduleApp.view"
+        xmlns:controller="clr-namespace:ScheduleApp.controller"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600.092" KeyDown="Window_KeyDown" Width="850.317">
+        Title="MainWindow" Height="600.092" Width="850.317">
+    <Window.CommandBindings>
+        <CommandBinding Command="{x:Static controller:Commands.NewCLassroomMenuCommand}" Executed="ClassroomForm_Click"/>
+        <CommandBinding Command="{x:Static controller:Commands.NewDepartmentMenuCommand}" Executed="DepartmentForm_Click"/>
+        <CommandBinding Command="{x:Static controller:Commands.NewSoftwareMenuCommand}" Executed="SoftwareForm_Click"/>
+        <CommandBinding Command="{x:Static controller:Commands.NewSubjectMenuCommand}" Executed="SubjectForm_Click"/>
+    </Window.CommandBindings>
     <Grid Name="grid">
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
@@ -14,19 +21,23 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0">
             <MenuItem Header="New">
-                <MenuItem Name="DepartmenForm" Header="Department" Click="DepartmentForm_Click"/>
-                <MenuItem Name="SoftwareForm" Header="Software" Click="SoftwareForm_Click"/>
-                <MenuItem Name="SubjectForm" Header="Subject" Click="SubjectForm_Click"/>
-                <MenuItem Name="ClassroomForm" Header="Classroom" Click="ClassroomForm_Click"/>
+                <MenuItem Name="DepartmenForm" Header="Department(Alt+D)" Click="DepartmentForm_Click">
+                </MenuItem>
+                <MenuItem Name="SoftwareForm" Header="Software(Alt+S)" Click="SoftwareForm_Click">
+                </MenuItem>
+                <MenuItem Name="SubjectForm" Header="Subject(Alt+P)" Click="SubjectForm_Click">
+                </MenuItem>
+                <MenuItem Name="ClassroomForm" Header="Classroom(Alt+U)" Click="ClassroomForm_Click">
+                </MenuItem>
             </MenuItem>
-            <MenuItem Header="_Tabelarni prikaz" Click="Tables_Click_1">
+            <MenuItem Header="_Tabelarni prikaz(Alt+T)" Click="Tables_Click_1">
                 <MenuItem.InputBindings>
                     <KeyBinding Key="T" Modifiers="Alt" />
                 </MenuItem.InputBindings>
             </MenuItem>
-            <MenuItem Header="_Raspored" Click="MenuItem_Click">
+            <MenuItem Header="_Raspored(Alt+R)" Click="MenuItem_Click">
                 <MenuItem.InputBindings>
-                    <KeyBinding Key="S" Modifiers="Alt" />
+                    <KeyBinding Key="R" Modifiers="Alt" />
                 </MenuItem.InputBindings>
             </MenuItem>
             <MenuItem Header="Pomoc">

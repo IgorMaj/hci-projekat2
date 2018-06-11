@@ -28,7 +28,7 @@ namespace ScheduleApp.view
         private Dictionary<string, Object> options = new Dictionary<string, object>();
         public ObservableCollection<string> optionList = new ObservableCollection<string>();
         public MainWindow parent;
-	private List<string> disallowedColumnNames = new List<String>();
+	    private List<string> disallowedColumnNames = new List<String>();
 
         public TableView(MainWindow parent)
         {
@@ -148,6 +148,5 @@ namespace ScheduleApp.view
             }
         }
 
-        
     }
 }
