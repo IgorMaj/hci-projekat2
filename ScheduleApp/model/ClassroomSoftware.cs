@@ -27,6 +27,23 @@ namespace ScheduleApp.model
         [DisplayName("Opis")]
         public string Description { get; set; }
 
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is ClassroomSoftware))
+            {
+                return false;
+            }
+            if (((ClassroomSoftware)obj).Label == null)
+            {
+                return false;
+            }
+            return ((ClassroomSoftware)obj).Label.Equals(Label);
+        }
+
         #region IDataErrorInfo Members
 
         public string Error
