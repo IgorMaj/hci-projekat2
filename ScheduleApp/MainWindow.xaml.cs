@@ -57,7 +57,7 @@ namespace ScheduleApp
         private void ClassroomForm_Click(object sender, RoutedEventArgs e)
         {
             ClassroomForm classroomForm = new ClassroomForm(this);
-            Title = "Classroom form";
+            Title = "Unos učionice";
             ChangeElement(classroomForm);
             controller.CustomEvents.RaiseTutorialStepCompletedEvent(Steps.CLASSROOM_FORM_ENTERED);
         }
@@ -65,7 +65,7 @@ namespace ScheduleApp
         private void SoftwareForm_Click(object sender, RoutedEventArgs e)
         {
             SoftwareForm softwareForm = new SoftwareForm(this);
-            Title = "Software form";
+            Title = "Unos softvera";
             ChangeElement(softwareForm);
         }
 
@@ -121,7 +121,7 @@ namespace ScheduleApp
         private void DepartmentForm_Click(object sender, RoutedEventArgs e)
         {
             DepartmentForm departmentForm = new DepartmentForm(this);
-            Title = "Department view";
+            Title = "Unos departmana";
             ChangeElement(departmentForm);
         }
 
@@ -130,12 +130,12 @@ namespace ScheduleApp
             if (application.departments.Count > 0)
             {
                 SubjectForm subjectForm = new SubjectForm(this);
-                Title = "Subject view";
+                Title = "Unos predmeta";
                 ChangeElement(subjectForm);
             }
             else
             {
-                MessageBoxResult result = MessageBox.Show("Can't create subjects beacause you don't have any departments.", "Information", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBoxResult result = MessageBox.Show("Ne možete kreirati predmet, mora postojati barem jedan departman.", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 

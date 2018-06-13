@@ -102,7 +102,7 @@ namespace ScheduleApp.view
             {
                 parent.application.classrooms.Add(Classroom);
                 Clear();
-                MessageBoxResult result = MessageBox.Show("Successfully added classroom.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBoxResult result = MessageBox.Show("Uspešno ste dodali učionicu.", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {

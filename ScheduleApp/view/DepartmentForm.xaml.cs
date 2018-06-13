@@ -75,7 +75,7 @@ namespace ScheduleApp.view
             {
                 parent.application.departments.Add(department);
                 Clear();
-                MessageBoxResult result = MessageBox.Show("Successfully added department.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBoxResult result = MessageBox.Show("Uspešno ste dodali departman.", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {

@@ -103,7 +103,7 @@ namespace ScheduleApp.view
             {
                 parent.application.classroomSoft.Add(Software);
                 Clear();
-                MessageBoxResult result = MessageBox.Show("Successfully added software.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBoxResult result = MessageBox.Show("Uspešno ste dodali softver.", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {

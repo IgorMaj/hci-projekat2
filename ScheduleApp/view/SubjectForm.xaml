@@ -69,19 +69,19 @@
         </Grid.RowDefinitions>
 
 
-        <Label Content="Label:" Target="{Binding ElementName=in_label}" Grid.Column="0" Grid.Row="0"/>
-        <Label Content="Name:" Target="{Binding ElementName=in_name}" Grid.Column="0" Grid.Row="1"/>
-        <Label Content="Department:" Target="{Binding ElementName=OsCb}" Grid.Column="0" Grid.Row="2"/>
-        <Label Content="Group size:" Target="{Binding ElementName=in_groupSize}" Grid.Column="0" Grid.Row="3"/>
-        <Label Content="Number of 45 minute classes in term:" Target="{Binding ElementName=in_minLength}" Grid.Column="0" Grid.Row="4"/>
-        <Label Content="Required number of terms for subject:" Target="{Binding ElementName=in_numberRequiredTerms}" Grid.Column="0" Grid.Row="5"/>
-        <Label Content="Required software:" Target="{Binding ElementName=Edit}" Grid.Column="0" Grid.Row="9"/>
-        <Label Content="Description:" Target="{Binding ElementName=in_description}" Grid.Column="2" Grid.Row="0"/>
+        <Label Content="Oznaka:" Target="{Binding ElementName=in_label}" Grid.Column="0" Grid.Row="0"/>
+        <Label Content="Naziv:" Target="{Binding ElementName=in_name}" Grid.Column="0" Grid.Row="1"/>
+        <Label Content="Departman:" Target="{Binding ElementName=OsCb}" Grid.Column="0" Grid.Row="2"/>
+        <Label Content="Broj studenata u grupi:" Target="{Binding ElementName=in_groupSize}" Grid.Column="0" Grid.Row="3"/>
+        <Label Content="Broj časova u terminu:" Target="{Binding ElementName=in_minLength}" Grid.Column="0" Grid.Row="4"/>
+        <Label Content="Potreban broj termina:" Target="{Binding ElementName=in_numberRequiredTerms}" Grid.Column="0" Grid.Row="5"/>
+        <Label Content="Potrebni softveri:" Target="{Binding ElementName=Edit}" Grid.Column="0" Grid.Row="9"/>
+        <Label Content="Opis:" Target="{Binding ElementName=in_description}" Grid.Column="2" Grid.Row="0"/>
 
 
-        <CheckBox Name="check_projector" Content="Needs projector?" Grid.Column="1"  Grid.Row="6"/>
-        <CheckBox Name="check_table" Content="Needs table?" Grid.Column="1"  Grid.Row="7" />
-        <CheckBox Name="check_smart" Content="Needs smart table?" Grid.Column="1"  Grid.Row="8"/>
+        <CheckBox Name="check_projector" Content="Potreban projektor?" Grid.Column="1"  Grid.Row="6"/>
+        <CheckBox Name="check_table" Content="Potrebna tabla?" Grid.Column="1"  Grid.Row="7" />
+        <CheckBox Name="check_smart" Content="Potrebna pametna tabla?" Grid.Column="1"  Grid.Row="8"/>
 
         <ComboBox Name="DepCb"  Grid.Column="1"  Grid.Row="2"
                 DisplayMemberPath="Name"/>
@@ -108,8 +108,8 @@
 
         <TextBox Name="in_description" TextWrapping="Wrap" Grid.Column="3" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="10" Width="240" Height="230"/>
 
-        <Button Name="Edit" Content="Edit" Grid.Column="1"  Grid.Row="9" Click="Edit_Click"/>
-        <Button Name="Cancel" Content="Cancel" Grid.Column="2" Grid.Row="10" Click="Cancel_Click"/>
-        <Button Name="Save" Content="Save" Grid.Column="3" Grid.Row="10" Command="New"/>
+        <Button Name="Edit" Content="Izmeni" Grid.Column="1"  Grid.Row="9" Click="Edit_Click"/>
+        <Button Name="Cancel" Content="Otkaži" Grid.Column="2" Grid.Row="10" Click="Cancel_Click"/>
+        <Button Name="Save" Content="Sačuvaj" Grid.Column="3" Grid.Row="10" Command="New"/>
     </Grid>
 </UserControl>
