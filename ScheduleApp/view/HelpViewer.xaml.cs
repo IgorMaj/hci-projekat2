@@ -15,9 +15,7 @@ using System.IO;
 
 namespace ScheduleApp.view
 {
-    /// <summary>
-    /// Interaction logic for HelpViewer.xaml
-    /// </summary>
+    
     public partial class HelpViewer : Window
     {
         public HelpViewer(string key, MainWindow originator)
@@ -29,7 +27,7 @@ namespace ScheduleApp.view
             {
                 key = "error";
             }
-            //Uri u = new Uri(String.Format("file:///{0}/Help/{1}.htm", curDir, key));
+            //Uri u = new Uri(String.Format("file:///{0}/help/{1}.htm", curDir, key));
             //ch = new JavaScriptControlHelper(originator);
             //wbHelp.ObjectForScripting = ch;
             //wbHelp.Navigate(u);

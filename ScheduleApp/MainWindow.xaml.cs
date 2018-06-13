@@ -30,7 +30,6 @@ namespace ScheduleApp
         public UIElement currentMainElement = null;
 
         
-
         public MainWindow()
         {
             InitializeComponent();
@@ -156,6 +155,11 @@ namespace ScheduleApp
             //tView.ShowInTaskbar = false;
             //tView.Show();
 
+        }
+
+        private void help_Click(object sender, RoutedEventArgs e)
+        {      
+            System.Windows.Forms.Help.ShowHelp(null, "../../help/Raspored.chm");
         }
     }
 }
