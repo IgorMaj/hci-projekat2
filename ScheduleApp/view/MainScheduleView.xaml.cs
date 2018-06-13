@@ -55,6 +55,7 @@ namespace ScheduleApp.view
             {
                 // Package the data.
                 var subject = (Subject)((ListView)sender).SelectedItem;
+                if (subject == null) { return; }
                 DataObject data = new DataObject();
                 data.SetData("Object", subject);
                 data.SetData("ChosenClassroom",termsView.ChosenClassroom);
