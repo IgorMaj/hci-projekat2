@@ -16,6 +16,7 @@ namespace ScheduleApp.controller
         public static RoutedCommand NewSoftwareMenuCommand { get; set; }
         public static RoutedCommand NewDepartmentMenuCommand { get; set; }
         public static RoutedCommand NewCLassroomMenuCommand { get; set; }
+        public static RoutedCommand HelpCommand { get; set; }
 
         //ovde ovako mozete dodati svoje komande i specifisati im precice ima i ovo ModifierKeys.Control da se ubaci
         static Commands() {
@@ -37,7 +38,8 @@ namespace ScheduleApp.controller
             NewSubjectMenuCommand = new RoutedCommand();
             NewSubjectMenuCommand.InputGestures.Add(new KeyGesture(Key.P, ModifierKeys.Alt));
 
-
+            HelpCommand = new RoutedCommand();
+            HelpCommand.InputGestures.Add(new KeyGesture(Key.F1));
         }
     }
 }

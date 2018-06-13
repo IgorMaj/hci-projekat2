@@ -10,7 +10,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="600.092" Width="850.317"  l:HelpProvider.HelpKey="Forma">
     <Window.CommandBindings>
-        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed"/>
+        <CommandBinding Command="{x:Static controller:Commands.HelpCommand}" Executed="CommandBinding_Executed"/>
         <CommandBinding Command="{x:Static controller:Commands.NewCLassroomMenuCommand}" Executed="ClassroomForm_Click"/>
         <CommandBinding Command="{x:Static controller:Commands.NewDepartmentMenuCommand}" Executed="DepartmentForm_Click"/>
         <CommandBinding Command="{x:Static controller:Commands.NewSoftwareMenuCommand}" Executed="SoftwareForm_Click"/>
@@ -42,7 +42,6 @@
                     <KeyBinding Key="R" Modifiers="Alt" />
                 </MenuItem.InputBindings>
             </MenuItem>
-            <TextBox Width="50px"  l:HelpProvider.HelpKey="o_programu"/>
             <MenuItem Header="Pomoc" >
             </MenuItem>
             <MenuItem Name="tutorialMenu" Header="Tutorial" Click="tutorial_Click">
