@@ -54,7 +54,8 @@
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="34.6"/>
+            <ColumnDefinition Width="37.4"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
@@ -66,39 +67,39 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <Label Content="Label:" Target="{Binding ElementName=in_label}" Grid.Column="0" Grid.Row="0"/>
-        <Label Content="Name:" Target="{Binding ElementName=in_name}" Grid.Column="0" Grid.Row="1"/>
-        <Label Content="Operating System:" Target="{Binding ElementName=OsCb}" Grid.Column="0" Grid.Row="2"/>
-        <Label Content="Vendor:" Target="{Binding ElementName=in_vendor}" Grid.Column="0" Grid.Row="3"/>
-        <Label Content="Site:" Target="{Binding ElementName=in_site}" Grid.Column="0" Grid.Row="4"/>
-        <Label Content="Year of publication:" Target="{Binding ElementName=in_date}" Grid.Column="0" Grid.Row="5"/>
-        <Label Content="Price:" Target="{Binding ElementName=in_price}" Grid.Column="0" Grid.Row="6"/>
-        <Label Content="Description:" Target="{Binding ElementName=in_description}" Grid.Column="2" Grid.Row="0"/>
+        <Label Content="Oznaka:" Target="{Binding ElementName=in_label}" Grid.Column="0" Grid.Row="0" Margin="0,0,5.4,0.4"/>
+        <Label Content="Naziv:" Target="{Binding ElementName=in_name}" Grid.Column="0" Margin="0,26,5.4,27" Grid.RowSpan="3"/>
+        <Label Content="Operativni sistem:" Target="{Binding ElementName=OsCb}" Grid.Column="0" Grid.Row="2" Margin="0,0.2,5.4,0"/>
+        <Label Content="Prodavac:" Target="{Binding ElementName=in_vendor}" Grid.Column="0" Grid.Row="3" Margin="0,0,5.4,0.4"/>
+        <Label Content="Sajt:" Target="{Binding ElementName=in_site}" Grid.Column="0" Grid.Row="3" Margin="0,26,5.4,28.6" Grid.RowSpan="3"/>
+        <Label Content="Godina objavljivanja:" Target="{Binding ElementName=in_date}" Grid.Column="0" Grid.Row="5" Margin="0,0.2,5.4,26" Grid.RowSpan="2"/>
+        <Label Content="Cena:" Target="{Binding ElementName=in_price}" Grid.Column="0" Grid.Row="6" Margin="0,0.4,5.4,0"/>
+        <Label Content="Opis:" Target="{Binding ElementName=in_description}" Grid.Column="2" Grid.Row="0" Margin="0,0,5.4,0.4"/>
 
-        <TextBox Name="in_label" Grid.Column="1" Grid.Row="0"
+        <TextBox Name="in_label" Grid.Row="0"
                  Validation.Error="Validation_Error" 
-                 Text="{Binding UpdateSourceTrigger=LostFocus, Path=Label,ValidatesOnDataErrors=true, NotifyOnValidationError=true}"/>
-        <TextBox Name="in_name" Grid.Column="1" Grid.Row="1"
+                 Text="{Binding UpdateSourceTrigger=LostFocus, Path=Label,ValidatesOnDataErrors=true, NotifyOnValidationError=true}" Grid.ColumnSpan="2" Margin="130,4,40.2,4.4"/>
+        <TextBox Name="in_name" Grid.Row="1"
                  Validation.Error="Validation_Error" 
-                 Text="{Binding UpdateSourceTrigger=LostFocus, Path=Name,ValidatesOnDataErrors=true, NotifyOnValidationError=true}"/>
-        <ComboBox Name="OsCb" Grid.Column="1" Grid.Row="2"/>
-        <TextBox Name="in_vendor" Grid.Column="1" Grid.Row="3"
+                 Text="{Binding UpdateSourceTrigger=LostFocus, Path=Name,ValidatesOnDataErrors=true, NotifyOnValidationError=true}" Grid.ColumnSpan="2" Margin="130,4.6,40.2,3.8"/>
+        <ComboBox Name="OsCb" Grid.Row="2" Grid.ColumnSpan="2" Margin="130,2.2,0.2,2"/>
+        <TextBox Name="in_vendor" Grid.Row="3"
                  Validation.Error="Validation_Error" 
-                 Text="{Binding UpdateSourceTrigger=LostFocus, Path=Vendor,ValidatesOnDataErrors=true, NotifyOnValidationError=true}"/>
-        <TextBox Name="in_site" Grid.Column="1" Grid.Row="4"
+                 Text="{Binding UpdateSourceTrigger=LostFocus, Path=Vendor,ValidatesOnDataErrors=true, NotifyOnValidationError=true}" Grid.ColumnSpan="2" Margin="130,4,40.2,4.4"/>
+        <TextBox Name="in_site" Grid.Row="4"
                  Validation.Error="Validation_Error" 
-                 Text="{Binding UpdateSourceTrigger=LostFocus, Path=Site,ValidatesOnDataErrors=true, NotifyOnValidationError=true}"/>
-        <DatePicker Name="in_date" Grid.Column="1" Grid.Row="5">
+                 Text="{Binding UpdateSourceTrigger=LostFocus, Path=Site,ValidatesOnDataErrors=true, NotifyOnValidationError=true}" Grid.ColumnSpan="2" Margin="130,4.6,40.2,3.8"/>
+        <DatePicker Name="in_date" Grid.Row="5" Grid.ColumnSpan="2" Margin="130,2.2,40.2,2.6">
             <DatePicker.BlackoutDates>
                 <CalendarDateRange Start="1/1/0001" End="12/31/1969"/>
                 <CalendarDateRange Start="{x:Static sys:DateTime.Now}" End="12/31/9999"/>
             </DatePicker.BlackoutDates>
         </DatePicker>
-        <TextBox Name="in_price" PreviewTextInput="NumberValidationTextBox" Grid.Column="1" Grid.Row="6"
+        <TextBox Name="in_price" PreviewTextInput="NumberValidationTextBox" Grid.Row="6"
                  Validation.Error="Validation_Error" 
-                 Text="{Binding UpdateSourceTrigger=LostFocus, Path=Price,ValidatesOnDataErrors=true, NotifyOnValidationError=true}"/>
-        <TextBox Name="in_description" Grid.Column="3" Grid.Row="0" Grid.RowSpan="7" Grid.ColumnSpan="2" Width="150" Height="170"/>
-        <Button Content="Save" Grid.Column="3" Grid.Row="7" Command="New"/>
-        <Button Name="Cancel" Content="Cancel" Grid.Column="2" Grid.Row="7" Click="Cancel_Click"/>
+                 Text="{Binding UpdateSourceTrigger=LostFocus, Path=Price,ValidatesOnDataErrors=true, NotifyOnValidationError=true}" Grid.ColumnSpan="2" Margin="130,4.4,40.2,4"/>
+        <TextBox Name="in_description" Grid.Column="3" Grid.Row="0" Grid.RowSpan="7" Grid.ColumnSpan="2" Width="150" Height="170" Margin="0.6,9,3.2,9"/>
+        <Button Content="Sačuvaj" Grid.Column="3" Grid.Row="7" Command="New" Margin="1.6,2"/>
+        <Button Name="Cancel" Content="Otkaži" Grid.Column="2" Grid.Row="7" Click="Cancel_Click" Margin="1.8,2,2.4,2"/>
     </Grid>
 </UserControl>

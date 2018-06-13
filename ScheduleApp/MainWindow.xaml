@@ -23,13 +23,13 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0">
             <MenuItem Header="Novi">
-                <MenuItem Name="DepartmenForm" Header="Smer (Alt+D)" Click="DepartmentForm_Click">
+                <MenuItem Name="DepartmenForm" Header="Departman (Alt+D)" Click="DepartmentForm_Click">
                 </MenuItem>
                 <MenuItem Name="SoftwareForm" Header="Softver (Alt+S)" Click="SoftwareForm_Click">
                 </MenuItem>
                 <MenuItem Name="SubjectForm" Header="Predmet (Alt+P)" Click="SubjectForm_Click">
                 </MenuItem>
-                <MenuItem Name="ClassroomForm" Header="Ucionica (Alt+U)" Click="ClassroomForm_Click">
+                <MenuItem Name="ClassroomForm" Header="Učionica (Alt+U)" Click="ClassroomForm_Click">
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="_Tabelarni prikaz (Alt+T)" Click="Tables_Click_1">

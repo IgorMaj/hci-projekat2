@@ -88,7 +88,14 @@ namespace ScheduleApp.view
         {
             if (dataGrid == null) { return; }
             initOptions();
+            if (selectCollection.SelectedItem == null) {
+                MessageBoxResult result = MessageBox.Show("Niste odabrali podatke za prikaz.", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                return;
+
+            }
             string arg = ((ComboBoxItem)selectCollection.SelectedItem).Content.ToString();
+            
             switch (arg)
             {
                 case "Ucionice":
@@ -97,12 +104,12 @@ namespace ScheduleApp.view
                         if (classroom != null)
                         {
                             ClassroomForm classroomForm = new ClassroomForm(parent, classroom, this);
-                            parent.Title = "Classroom edit form";
+                            parent.Title = "Izmena učionice";
                             parent.ChangeElement(classroomForm);
                         }
                         else
                         {
-                            MessageBoxResult result = MessageBox.Show("You must select classroom to edit first.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageBoxResult result = MessageBox.Show("Niste odabrali učionicu iz tabele.", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                     }
                     break;
@@ -111,12 +118,12 @@ namespace ScheduleApp.view
                     if (department != null)
                     {
                         DepartmentForm departmentForm = new DepartmentForm(parent, department, this);
-                        parent.Title = "Department edit form";
+                        parent.Title = "Izmena departmana";
                         parent.ChangeElement(departmentForm);
                     }
                     else
                     {
-                        MessageBoxResult result = MessageBox.Show("You must select department to edit first.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBoxResult result = MessageBox.Show("Niste odabrali departman iz tabele.", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     break;
                 case "Softver":
@@ -124,12 +131,12 @@ namespace ScheduleApp.view
                     if (classroomSoftware != null)
                     {
                         SoftwareForm softwareForm = new SoftwareForm(parent, classroomSoftware, this);
-                        parent.Title = "Software edit form";
+                        parent.Title = "Izmena softvera";
                         parent.ChangeElement(softwareForm);
                     }
                     else
                     {
-                        MessageBoxResult result = MessageBox.Show("You must select software to edit first.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBoxResult result = MessageBox.Show("Niste odabrali softver iz tabele.", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     break;
                 case "Predmeti":
@@ -137,12 +144,12 @@ namespace ScheduleApp.view
                     if (subject != null)
                     {
                         SubjectForm subjectForm = new SubjectForm(parent, subject, this);
-                        parent.Title = "Subject edit form";
+                        parent.Title = "Izmena predmeta";
                         parent.ChangeElement(subjectForm);
                     }
                     else
                     {
-                        MessageBoxResult result = MessageBox.Show("You must select subject to edit first.", "Information", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBoxResult result = MessageBox.Show("Niste odabrali predmet iz tabele.", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     break;
             }

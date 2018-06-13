@@ -64,10 +64,10 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <Label Content="Label:" Target="{Binding ElementName=in_label}" Grid.Column="0" Grid.Row="0"/>
-        <Label Content="Name:" Target="{Binding ElementName=in_name}" Grid.Column="0" Grid.Row="1"/>
-        <Label Content="Date of introduction:" Target="{Binding ElementName=in_date}" Grid.Column="0" Grid.Row="2"/>
-        <Label Content="Description:" Target="{Binding ElementName=in_description}" Grid.Column="0" Grid.Row="3"/>
+        <Label Content="Oznaka:" Target="{Binding ElementName=in_label}" Grid.Column="0" Grid.Row="0"/>
+        <Label Content="Naziv:" Target="{Binding ElementName=in_name}" Grid.Column="0" Grid.Row="1"/>
+        <Label Content="Datum osnivanja:" Target="{Binding ElementName=in_date}" Grid.Column="0" Grid.Row="2"/>
+        <Label Content="Opis:" Target="{Binding ElementName=in_description}" Grid.Column="0" Grid.Row="3"/>
 
         <TextBox Name="in_label" Grid.Column="1" Grid.Row="0"
                  Validation.Error="Validation_Error" 
@@ -85,8 +85,8 @@
         </DatePicker>
      
         <TextBox Name="in_description" TextWrapping="Wrap" Grid.Column="1" Grid.Row="3"   Height="70"/>
-        <Button Content="Save" Grid.Column="3" Grid.Row="7" Command="New"/>
+        <Button Content="Sačuvaj" Grid.Column="3" Grid.Row="7" Command="New"/>
 
-        <Button Name="Cancel" Content="Cancel" Grid.Column="2" Grid.Row="7" Click="Cancel_Click"/>
+        <Button Name="Cancel" Content="Otkaži" Grid.Column="2" Grid.Row="7" Click="Cancel_Click"/>
     </Grid>
 </UserControl>
