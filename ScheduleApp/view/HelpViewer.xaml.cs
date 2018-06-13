@@ -18,19 +18,20 @@ namespace ScheduleApp.view
     
     public partial class HelpViewer : Window
     {
+        private JSControlHelper ch;
         public HelpViewer(string key, MainWindow originator)
         {
             InitializeComponent();
             string curDir = Directory.GetCurrentDirectory();
-            string path = String.Format("{0}/help/{1}.htm", curDir, key);
+            string path = String.Format("{0}/../../help/{1}.htm", curDir, key);
             if (!File.Exists(path))
             {
                 key = "error";
             }
-            //Uri u = new Uri(String.Format("file:///{0}/help/{1}.htm", curDir, key));
-            //ch = new JavaScriptControlHelper(originator);
-            //wbHelp.ObjectForScripting = ch;
-            //wbHelp.Navigate(u);
+            Uri u = new Uri(String.Format("file:///{0}/../../help/{1}.htm", curDir, key));
+            ch = new JSControlHelper(originator);
+            wbHelp.ObjectForScripting = ch;
+            wbHelp.Navigate(u);
 
         }
 

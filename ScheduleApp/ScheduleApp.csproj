@@ -65,6 +65,7 @@
     <Compile Include="controller\Application.cs" />
     <Compile Include="controller\Commands.cs" />
     <Compile Include="controller\CustomEvents.cs" />
+    <Compile Include="JSControlHelper.cs" />
     <Compile Include="model\HelpProvider.cs" />
     <Compile Include="model\Tutorial.cs" />
     <Compile Include="model\TutorialStep.cs" />
