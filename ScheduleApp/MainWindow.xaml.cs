@@ -35,6 +35,7 @@ namespace ScheduleApp
             InitializeComponent();
             application = application.loadData();
             tutorial.setup();
+            HelpProvider.SetHelpKey(this, "o_programu");
             //JSONUtil.CreateDummyData("data.json");
 
         }
