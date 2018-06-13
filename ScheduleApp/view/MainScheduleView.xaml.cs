@@ -31,21 +31,73 @@ namespace ScheduleApp.view
             }
         }
 
+        public ObservableCollection<Subject> AllSubjects { get; set; }
+
         public MainScheduleView()
         {
             InitializeComponent();
             DataContext = this;
             var container = MainWindow.GetApplication();
             Classrooms = container.classrooms;
-            AvailableSubjects = container.subjects;
+            AllSubjects = container.subjects;
             classroomPick.ItemsSource = Classrooms;
-            SubjectsView.ItemsSource = AvailableSubjects;
-            SubjectsView.DataContext = AvailableSubjects;
-            if (classroomPick.SelectedItem != null)
-            {
-                termsView.ChosenClassroom = (Classroom)classroomPick.SelectedItem;
+            SetupSubjects();
+
+
+        }
+
+        private ObservableCollection<Subject> FilterSubjects(ObservableCollection<Subject> subjects)
+        {
+            ObservableCollection<Subject> retVal = new ObservableCollection<Subject>();
+
+            foreach (Subject sub in subjects){
+                if (ClassroomSupportsSubject(sub)) {
+                    retVal.Add(sub);
+                }
             }
+
+            return retVal;
+        }
+
+        private bool CheckProperty(bool ClassroomProperty, bool SubjectProperty) {
+            //ako predmet zahteva nesto sto ucionica nema  onda vracamo da ucionica ne podrzava ;)
+            if (SubjectProperty && !ClassroomProperty) {
+                return false;
+            }
+            //inace vracamo true
+            return true;
+        }
+
+        private bool ClassroomSupportsSubject(Subject sub)
+        {
+            if (termsView.ChosenClassroom == null) {
+                return false;
+            }
+            var classroom = termsView.ChosenClassroom;
+            return CheckProperty(classroom.HasProjector, sub.ProjectorRequired) &&
+            CheckProperty(classroom.HasTable, sub.TableRequired) &&
+            CheckProperty(classroom.HasSmartTable, sub.SmartTableRequired) && 
+            CheckOS(classroom.OS, sub.OSRequired) && CheckSoftware(classroom.InstalledSoftware,sub.SoftwareRequired);
             
+        }
+
+        private bool CheckSoftware(List<ClassroomSoftware> installedSoftware, List<ClassroomSoftware> softwareRequired)
+        {
+            foreach (ClassroomSoftware soft in softwareRequired) {
+                if (!installedSoftware.Contains(soft)) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private bool CheckOS(ClassroomOS oS, ClassroomOS oSRequired)
+        {
+            if (oS == oSRequired || oS == ClassroomOS.WINDOWS_AND_LINUX) {
+                return true;
+            }
+            return false;
         }
 
         private void SubjectsView_MouseMove(object sender, MouseEventArgs e)
@@ -65,12 +117,20 @@ namespace ScheduleApp.view
             }
         }
 
-        private void classroomPick_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        private void SetupSubjects() {
+
             if (classroomPick.SelectedItem != null)
             {
                 termsView.ChosenClassroom = (Classroom)classroomPick.SelectedItem;
+                AvailableSubjects = FilterSubjects(AllSubjects);
+                SubjectsView.ItemsSource = AvailableSubjects;
+                SubjectsView.DataContext = AvailableSubjects;
             }
+        }
+
+        private void classroomPick_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SetupSubjects();
         }
 
         public void DeleteTerm(object sender, ExecutedRoutedEventArgs e)

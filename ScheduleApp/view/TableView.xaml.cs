@@ -36,7 +36,7 @@ namespace ScheduleApp.view
             InitializeComponent();
             DataContext = this;
             initOptions();
-
+            dataGrid_SelectionChanged(null, null);
         }
 
         private void initOptions() {
