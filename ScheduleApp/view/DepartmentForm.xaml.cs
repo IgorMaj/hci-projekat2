@@ -34,6 +34,7 @@ namespace ScheduleApp.view
             department = new Department();
             action = "added";
             grid.DataContext = department;
+            HelpProvider.SetHelpKey(this, "dodavanje_sadrzaja");
         }
         public DepartmentForm(MainWindow parent, Department department, TableView scheduleView)
         {

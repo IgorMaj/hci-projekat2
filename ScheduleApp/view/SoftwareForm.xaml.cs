@@ -37,6 +37,7 @@ namespace ScheduleApp.view
             OsCb.SelectedIndex = 0;
             action = "added";
             grid.DataContext = Software;
+            HelpProvider.SetHelpKey(this, "dodavanje_sadrzaja");
         }
 
         public SoftwareForm(MainWindow parent, ClassroomSoftware Software, TableView scheduleView)

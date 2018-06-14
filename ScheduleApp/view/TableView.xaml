@@ -22,7 +22,7 @@
         <ComboBox Grid.Row="0" Name="selectCollection" SelectedIndex="0" SelectionChanged="dataGrid_SelectionChanged" Grid.ColumnSpan="3" Margin="0,0,0,0.4">
 
             <ComboBoxItem Content="Ucionice"/>
-            <ComboBoxItem Content="Smerovi"/>
+            <ComboBoxItem Content="Departmani"/>
             <ComboBoxItem Content="Softver"/>
             <ComboBoxItem Content="Predmeti"/>
         </ComboBox>

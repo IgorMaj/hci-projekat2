@@ -37,6 +37,7 @@ namespace ScheduleApp.view
             DepCb.SelectedIndex = 0;
             action = "added";
             grid.DataContext = Subject;
+            HelpProvider.SetHelpKey(this, "dodavanje_sadrzaja");
         }
 
         public SubjectForm(MainWindow parent, Subject Subject, TableView scheduleView)

@@ -37,12 +37,13 @@ namespace ScheduleApp.view
             DataContext = this;
             initOptions();
             dataGrid_SelectionChanged(null, null);
+            HelpProvider.SetHelpKey(this, "tabela");
         }
 
         private void initOptions() {
             
             options["Ucionice"] = application.classrooms;
-            options["Smerovi"] = application.departments;
+            options["Departmani"] = application.departments;
             options["Softver"] = application.classroomSoft;
             options["Predmeti"] = application.subjects;
             disallowedColumnNames.Add("Error");

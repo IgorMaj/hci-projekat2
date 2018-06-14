@@ -42,7 +42,14 @@ namespace ScheduleApp
 
         private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
         {
-            IInputElement focusedControl = this;
+            IInputElement focusedControl = null;
+            if (currentMainElement == null)
+            {
+                focusedControl = this;
+            }
+            else {
+                focusedControl = currentMainElement;
+            }
             if (focusedControl is DependencyObject)
             {
                 string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
@@ -103,6 +110,7 @@ namespace ScheduleApp
             if (currentMainElement != null)
             {
                 grid.Children.Remove(currentMainElement);
+                currentMainElement = null;
             }
         }
 
