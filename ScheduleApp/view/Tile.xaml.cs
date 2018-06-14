@@ -80,7 +80,7 @@ namespace ScheduleApp.view
             int newTileRowspan = 3 * (termTile.Term.Length);
             if (row + newTileRowspan > (grid.RowDefinitions.Count))
             {
-                MessageBox.Show("Impossible to drag. You will break the time limit.");
+                MessageBox.Show("Nemoguce prevuci tu. Termin ce probiti limite.");
                 return;
             }
             List<Tuple<int, int>> coordinates = TilesUtil.GetAllTermCoordinates(row, column, newTileRowspan);
@@ -90,7 +90,7 @@ namespace ScheduleApp.view
             List<Tile> tilesToMark = TilesUtil.GetTiles(grid, coordinates);
             if (!TilesUtil.CheckAndMarkTiles(tilesToMark, termTile))
             {
-                MessageBox.Show("Terms can't overlap.");
+                MessageBox.Show("Termini se ne mogu preklapati.");
                 return;
             }
 
@@ -137,7 +137,7 @@ namespace ScheduleApp.view
         {
             if (!DropAllowed)
             {
-                MessageBox.Show("Dropping is not allowed here.");
+                MessageBox.Show("Nije dozvoljeno prevlaciti tu.");
                 return;
             }
 
