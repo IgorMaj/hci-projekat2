@@ -61,6 +61,8 @@ namespace ScheduleApp.view
             foreach(TermTile tTile in childrenToRemove) {
                 grid.Children.Remove(tTile);
             }
+
+            TermTile.LastSelectedTermTile = null;
         }
 
         public TermsView()
