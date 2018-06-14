@@ -61,7 +61,7 @@ namespace ScheduleApp.view
                 t.Subject = (Subject)e.Data.GetData("Object");
 
                 if (t.Subject.NumRequiredTerms <= 0) {
-                    MessageBox.Show("No more required terms for this subject.");
+                    MessageBox.Show("Nema vise termina za predmet.");
                     return;
                 }
                 t.Subject.NumRequiredTerms = t.Subject.NumRequiredTerms -1;
