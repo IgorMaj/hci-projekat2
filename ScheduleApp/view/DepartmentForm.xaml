@@ -45,7 +45,9 @@
         </Style>
 
     </UserControl.Resources>
-    <Grid Name="grid">
+    
+    <Viewbox Stretch="Uniform">
+        <Grid Name="grid">
         <Grid.CommandBindings>
             <CommandBinding Command="New" CanExecute="AddDepartment_CanExecute" Executed="AddDepartment_Executed" />
         </Grid.CommandBindings>
@@ -89,4 +91,5 @@
 
         <Button Name="Cancel" Content="Otkaži" Grid.Column="2" Grid.Row="7" Click="Cancel_Click"/>
     </Grid>
+        </Viewbox>
 </UserControl>
