@@ -42,6 +42,7 @@ namespace ScheduleApp.view
             AllSubjects = container.subjects;
             classroomPick.ItemsSource = Classrooms;
             SetupSubjects();
+            HelpProvider.SetHelpKey(this, "raspored");
 
 
         }
