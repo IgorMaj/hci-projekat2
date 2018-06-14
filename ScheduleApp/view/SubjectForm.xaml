@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:ScheduleApp.view"
         mc:Ignorable="d"
         Height="402.805" Width="845.541">
+
+
     <UserControl.Resources>
         <Style TargetType="{x:Type Label}">
             <Setter Property="Margin" Value="5,0,5,0" />
@@ -43,13 +45,14 @@
         </Style>
 
     </UserControl.Resources>
+    <Viewbox Stretch="Uniform">
     <Grid Name="grid">
         <Grid.CommandBindings>
             <CommandBinding Command="New" CanExecute="AddSubject_CanExecute" Executed="AddSubject_Executed" />
         </Grid.CommandBindings>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="160"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
@@ -112,4 +115,5 @@
         <Button Name="Cancel" Content="Otkaži" Grid.Column="2" Grid.Row="10" Click="Cancel_Click"/>
         <Button Name="Save" Content="Sačuvaj" Grid.Column="3" Grid.Row="10" Command="New"/>
     </Grid>
+    </Viewbox>
 </UserControl>

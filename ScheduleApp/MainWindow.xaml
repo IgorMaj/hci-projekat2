@@ -42,9 +42,9 @@
                     <KeyBinding Key="R" Modifiers="Alt" />
                 </MenuItem.InputBindings>
             </MenuItem>
-            <MenuItem Header="Pomoc" Click="help_Click">
+            <MenuItem Header="Pomoć" Click="help_Click">
             </MenuItem>
-            <MenuItem Name="tutorialMenu" Header="Tutorial" Click="tutorial_Click">
+            <MenuItem Name="tutorialMenu" Header="Tutorijal" Click="tutorial_Click">
             </MenuItem>
         </Menu>
          <Image Name="mainImage" Source="student_center.jpg" Grid.Row="1" Width="{Binding ActualWidth, ElementName=Tb}"/>
