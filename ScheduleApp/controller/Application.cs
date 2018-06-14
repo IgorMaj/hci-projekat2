@@ -35,19 +35,26 @@ namespace ScheduleApp.controller
 
         public Application loadData()
         {
-            using (StreamReader r = new StreamReader("data.json"))
+            try
             {
-                string json = r.ReadToEnd();
-                Application retVal = JsonConvert.DeserializeObject<Application>(json);
-                if (retVal == null)
+                using (StreamReader r = new StreamReader("data.json"))
                 {
-                    return new Application();
-                }
-                else
-                {
-                    return retVal;
+                    string json = r.ReadToEnd();
+                    Application retVal = JsonConvert.DeserializeObject<Application>(json);
+                    if (retVal == null)
+                    {
+                        return new Application();
+                    }
+                    else
+                    {
+                        return retVal;
+                    }
                 }
             }
+            catch (IOException) {
+                return new Application();
+            }
+            
         }
 
         public void RemoveCompletely(object selectedItem)
