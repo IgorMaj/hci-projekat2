@@ -59,7 +59,7 @@ namespace ScheduleApp.model
                 if (columnName == "Label")
                 {
                     if (string.IsNullOrEmpty(Label))
-                        result = "Please enter a Label";
+                        result = "Unesite oznaku";
                 }
                 if (columnName == "Description")
                 {
@@ -70,7 +70,7 @@ namespace ScheduleApp.model
                 {
 
                     if (string.IsNullOrEmpty(Name))
-                        result = "Please enter a name of department";
+                        result = "Unesite naziv";
                 }
                 return result;
             }

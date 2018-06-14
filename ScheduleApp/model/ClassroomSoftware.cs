@@ -59,22 +59,22 @@ namespace ScheduleApp.model
                 if (columnName == "Label")
                 {
                     if (string.IsNullOrEmpty(Label))
-                        result = "Please enter a Label";
+                        result = "Unesite oznaku";
                 }
                 if (columnName == "Name")
                 {
                     if (string.IsNullOrEmpty(Name))
-                        result = "Please enter a name";
+                        result = "Unesite naziv";
                 }
                 if (columnName == "Vendor")
                 {
                     if (string.IsNullOrEmpty(Vendor))
-                        result = "Please enter a vendor";
+                        result = "Unesite prodavca";
                 }
                 if (columnName == "Site")
                 {
                     if (string.IsNullOrEmpty(Site))
-                        result = "Please enter a site";
+                        result = "Unesite sajt";
                 }
                 if (columnName == "Description")
                 {
@@ -84,7 +84,7 @@ namespace ScheduleApp.model
                 if (columnName == "Price")
                 {
                     if (Price < 0)
-                        result = "Please enter a valid price";
+                        result = "Unesite celobrojnu vrednost";
                 }
                 return result;
             }
