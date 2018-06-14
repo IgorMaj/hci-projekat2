@@ -168,7 +168,7 @@ namespace ScheduleApp
 
         private void help_Click(object sender, RoutedEventArgs e)
         {      
-            System.Windows.Forms.Help.ShowHelp(null, "../../help/Raspored.chm");
+            System.Windows.Forms.Help.ShowHelp(null, "help/Raspored.chm");
         }
     }
 }

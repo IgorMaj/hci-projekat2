@@ -78,11 +78,18 @@ namespace ScheduleApp.view
 
         private void deleteButton_Click(object sender, RoutedEventArgs e)
         {
-            if(MessageBox.Show("Ovaj entitet ce biti obrisan. Takodje ce biti obrisani svi oni koji su povezani s njim.", "Pitanje", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes){
-                var selectedItem = dataGrid.SelectedItem;
-                application.RemoveCompletely(selectedItem);
+            var selectedItem = dataGrid.SelectedItem;
+            if (selectedItem != null)
+            {
+                if (MessageBox.Show("Ovaj entitet će biti obrisan. Takođe će biti obrisani svi oni koji su povezani s njim.", "Pitanje", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                {
+                    //var selectedItem = dataGrid.SelectedItem;
+                    application.RemoveCompletely(selectedItem);
+                }
             }
-            
+            else
+                MessageBox.Show("Niste odabrali entitet koji želite da obrišete.", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
+
         }
 
         private void Edit_Click(object sender, RoutedEventArgs e)

@@ -197,7 +197,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="help\Raspored.chm" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -209,32 +208,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="student_center.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="help\dodavanje_sadrzaja.htm" />
-    <Content Include="help\error.htm" />
-    <Content Include="help\o_programu.htm" />
-    <Content Include="help\prvi_koraci.htm" />
-    <Resource Include="help\Slike\brisanje.PNG" />
-    <Resource Include="help\Slike\brisanje_p.PNG" />
-    <Resource Include="help\Slike\dodaj_softver.PNG" />
-    <Resource Include="help\Slike\izbor_softver.PNG" />
-    <Resource Include="help\Slike\kal_smer.PNG" />
-    <Resource Include="help\Slike\menubar.PNG" />
-    <Resource Include="help\Slike\novi_padajuci.png" />
-    <Resource Include="help\Slike\pocetna.PNG" />
-    <Resource Include="help\Slike\predmet.PNG" />
-    <Resource Include="help\Slike\raspored.PNG" />
-    <Resource Include="help\Slike\raspored_predmeti.PNG" />
-    <Resource Include="help\Slike\smer.PNG" />
-    <Resource Include="help\Slike\smer_crveno.PNG" />
-    <Resource Include="help\Slike\softver.PNG" />
-    <Resource Include="help\Slike\tabela_padajuci.PNG" />
-    <Resource Include="help\Slike\tabela_predmet.PNG" />
-    <Resource Include="help\Slike\ucionica.PNG" />
-    <Resource Include="help\Slike\ucionica_sistem.PNG" />
-    <Resource Include="help\Slike\ukloni_softver.PNG" />
-    <Content Include="help\tabela.htm" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
