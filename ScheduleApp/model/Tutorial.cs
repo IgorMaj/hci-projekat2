@@ -47,10 +47,10 @@ namespace ScheduleApp.model
             TutorialStep step3 = new TutorialStep() { Title = "Korak 3", Content = "Odlicno. Popunite podatke za novu ucionicu. Onda je dodajte." };
             TutorialSteps.Add(step3);
 
-            TutorialStep step4 = new TutorialStep() { Title = "Korak 4", Content = "Sada je vreme da dodate smer. Postupak je slican kao kod ucionice.\nZa ulazak u odgovarajucu formu pritisnite (Novi->smer ili Alt+D).\nNakon toga popunite formu." };
+            TutorialStep step4 = new TutorialStep() { Title = "Korak 4", Content = "Sada je vreme da dodate departman. Postupak je slican kao kod ucionice.\nZa ulazak u odgovarajucu formu pritisnite (Novi->Departman ili Alt+D).\nNakon toga popunite formu." };
             TutorialSteps.Add(step4);
 
-            TutorialStep step5 = new TutorialStep() { Title = "Korak 5", Content = "Dodajte predmet(Novi-> predmet ili Alt+P).\nPrimeticete da mozete da ga dodelite smeru koji ste prethodno napravili.\nTrudite se da predmet i ucionica(koju ste dodali) budu kompatibilni po pitanju zahteva(tabla,projektor...)." };
+            TutorialStep step5 = new TutorialStep() { Title = "Korak 5", Content = "Dodajte predmet(Novi-> predmet ili Alt+P).\nPrimeticete da mozete da ga dodelite departmanu koji ste prethodno napravili.\nTrudite se da predmet i ucionica(koju ste dodali) budu kompatibilni po pitanju zahteva(tabla,projektor...)." };
             TutorialSteps.Add(step5);
 
             TutorialStep step6 = new TutorialStep() { Title = "Korak 6", Content = "Udjite u semu rasporeda(Raspored ili Alt+R). Prikazace vam se prozor s rasporedom gde cete moci da pravite termine." };
