@@ -61,7 +61,7 @@ namespace ScheduleApp.view
                 t.Subject = (Subject)e.Data.GetData("Object");
 
                 if (t.Subject.NumRequiredTerms <= 0) {
-                    MessageBox.Show("Nema vise termina za predmet.");
+                    MessageBox.Show("Nema vise termina za predmet.", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }
                 t.Subject.NumRequiredTerms = t.Subject.NumRequiredTerms -1;
@@ -80,7 +80,7 @@ namespace ScheduleApp.view
             int newTileRowspan = 3 * (termTile.Term.Length);
             if (row + newTileRowspan > (grid.RowDefinitions.Count))
             {
-                MessageBox.Show("Nemoguce prevuci tu. Termin ce probiti limite.");
+                MessageBox.Show("Nemoguce prevuci tu. Termin ce probiti limite.", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
             List<Tuple<int, int>> coordinates = TilesUtil.GetAllTermCoordinates(row, column, newTileRowspan);
@@ -90,7 +90,7 @@ namespace ScheduleApp.view
             List<Tile> tilesToMark = TilesUtil.GetTiles(grid, coordinates);
             if (!TilesUtil.CheckAndMarkTiles(tilesToMark, termTile))
             {
-                MessageBox.Show("Termini se ne mogu preklapati.");
+                MessageBox.Show("Termini se ne mogu preklapati.", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
 
@@ -137,7 +137,7 @@ namespace ScheduleApp.view
         {
             if (!DropAllowed)
             {
-                MessageBox.Show("Nije dozvoljeno prevlaciti tu.");
+                MessageBox.Show("Nije dozvoljeno prevlaciti tu.", "Obaveštenje", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
 

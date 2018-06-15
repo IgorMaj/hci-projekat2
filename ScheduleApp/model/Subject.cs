@@ -97,12 +97,12 @@ namespace ScheduleApp.model
                 if (columnName == "Label")
                 {
                     if (string.IsNullOrEmpty(Label))
-                        result = "Please enter a label";
+                        result = "Unesite oznaku";
                 }
                 if (columnName == "Name")
                 {
                     if (string.IsNullOrEmpty(Name))
-                        result = "Please enter a name";
+                        result = "Unesite naziv";
                 }
                 if (columnName == "Description")
                 {
@@ -112,17 +112,17 @@ namespace ScheduleApp.model
                 if (columnName == "GroupSize")
                 {
                     if (GroupSize < 0)
-                        result = "Please enter a valid number for group size";
+                        result = "Unesite celobrojnu vrednost";
                 }
                 if (columnName == "MinimalTermLength")
                 {
                     if (MinimalTermLength < 0)
-                        result = "Please enter a valid number for minimal term length";
+                        result = "Unesite celobrojnu vrednost";
                 }
                 if (columnName == "NumRequiredTerms")
                 {
                     if (NumRequiredTerms < 0)
-                        result = "Please enter a valid number for number of required terms";
+                        result = "Unesite celobrojnu vrednost";
                 }
                 return result;
             }
