@@ -67,6 +67,13 @@ namespace ScheduleApp.view
         private void AddDepartment_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             department.Label = in_label.Text;
+
+            if (!MainWindow.GetApplication().CheckUniqueConstraint(department.Label))
+            {
+                MessageBox.Show("Entitet nema jedinstvenu oznaku na nivou sistema.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             department.Description = in_description.Text;
             department.Name = in_name.Text;
             DateTime dt;

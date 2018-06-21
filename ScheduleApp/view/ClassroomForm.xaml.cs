@@ -59,6 +59,7 @@ namespace ScheduleApp.view
                 }
             }
             in_label.Text = Classroom.Label;
+
             in_description.Text = Classroom.Description;
             in_employees.Text = Classroom.NumOfEmployees.ToString();
             check_projector.IsChecked = Classroom.HasProjector;
@@ -92,6 +93,13 @@ namespace ScheduleApp.view
         private void AddClassroom_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             Classroom.Label = in_label.Text;
+
+            if (!MainWindow.GetApplication().CheckUniqueConstraint(Classroom.Label))
+            {
+                MessageBox.Show("Entitet nema jedinstvenu oznaku na nivou sistema.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             Classroom.Description = in_description.Text;
             Classroom.NumOfEmployees = Int32.Parse(in_employees.Text);
             Classroom.HasProjector = (bool)check_projector.IsChecked;

@@ -57,6 +57,29 @@ namespace ScheduleApp.controller
             
         }
 
+        public bool CheckUniqueConstraint(string label) {
+            if (label == null) { return false; }
+
+            foreach (Classroom elem in classrooms) {
+                if (elem.Label.Equals(label)) { return false; }
+            }
+
+            foreach (Department elem in departments)
+            {
+                if (elem.Label.Equals(label)) { return false; }
+            }
+            foreach (ClassroomSoftware elem in classroomSoft)
+            {
+                if (elem.Label.Equals(label)) { return false; }
+            }
+
+            foreach (Subject elem in subjects)
+            {
+                if (elem.Label.Equals(label)) { return false; }
+            }
+            return true;
+        }
+
         public void RemoveCompletely(object selectedItem)
         {
             if (selectedItem == null) { return; }

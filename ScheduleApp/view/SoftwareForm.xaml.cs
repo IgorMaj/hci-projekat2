@@ -90,6 +90,12 @@ namespace ScheduleApp.view
         private void AddSoftware_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             Software.Label = in_label.Text;
+
+            if (!MainWindow.GetApplication().CheckUniqueConstraint(Software.Label)) {
+                MessageBox.Show("Entitet nema jedinstvenu oznaku na nivou sistema.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             Software.Description = in_description.Text;
             Software.Name = in_name.Text;
             Software.Price = Double.Parse(in_price.Text);

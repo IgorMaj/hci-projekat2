@@ -92,6 +92,13 @@ namespace ScheduleApp.view
         private void AddSubject_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             Subject.Label = in_label.Text;
+
+            if (!MainWindow.GetApplication().CheckUniqueConstraint(Subject.Label))
+            {
+                MessageBox.Show("Entitet nema jedinstveno oznaku na nivou sistema.", "Greška", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             Subject.Name = in_name.Text;
             Subject.Department = (Department)DepCb.SelectedValue;
             Subject.Description = in_description.Text;
